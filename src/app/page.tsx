@@ -16,7 +16,7 @@ export default function Home() {
   );
 }
 
-export function LampDemo() {
+function LampDemo() {
   return (
     <LampContainer className="rounded-none pt-48">
       <Image src={"/logo.png"} width={300} height={20} alt="Devnic" />
