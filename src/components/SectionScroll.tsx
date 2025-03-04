@@ -10,7 +10,7 @@ export function MacbookScrollDemo() {
             Sistemas pensados para a sua empresa
           </span>
         }
-        src={`/linear.webp`}
+        src={`/dashboard.jpeg`}
         showGradient={false}
       />
     </div>
