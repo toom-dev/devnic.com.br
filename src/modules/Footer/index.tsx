@@ -23,6 +23,14 @@ export const Footer: FC = () => {
                         <ul>
                             <li className="mb-3">
                                 <a
+                                    href="/politica-de-privacidade"
+                                    className="text-tertiary  hover:text-secondary transition duration-150 ease-in-out"
+                                >
+                                    Política de Privacidade
+                                </a>
+                            </li>
+                            <li className="mb-3">
+                                <a
                                     href="/termos-de-uso"
                                     className="text-tertiary  hover:text-secondary transition duration-150 ease-in-out"
                                 >
