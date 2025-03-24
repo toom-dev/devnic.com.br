@@ -30,7 +30,8 @@ const { title, description, overwritePreview } = Astro.props;
         <Global styles={NormalizeCSS} />
     </head>
     <body class="bg-primary">
-        <Header />
+        <!-- @ts-ignore -->
+        <Header client:load />
         <slot />
         <Footer />
         <script>
