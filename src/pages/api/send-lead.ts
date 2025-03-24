@@ -19,11 +19,11 @@ export const POST: APIRoute = async ({ params, redirect, request }) => {
 
     if (error) {
         console.error("Erro ao inserir lead", error)
-        return redirect("/#contato", 307)
+        return redirect("/contato-nao-enviado", 307)
     }
 
 
-    return redirect("/#contato", 307)
+    return redirect("/contato-enviado", 307)
 
 }
 
