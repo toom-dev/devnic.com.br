@@ -23,10 +23,10 @@ export const Footer: FC = () => {
                         <ul>
                             <li className="mb-3">
                                 <a
-                                    href="/politica-de-privacidade"
+                                    href="/termos-de-uso"
                                     className="text-tertiary  hover:text-secondary transition duration-150 ease-in-out"
                                 >
-                                    Política de Privacidade e Termos de Uso
+                                    Termos de Uso
                                 </a>
                             </li>
                         </ul>
@@ -65,7 +65,7 @@ export const Footer: FC = () => {
                 </S.FooterCols>
                 <div className="md:flex md:items-center md:justify-between">
                     <div className="text-secondary  text-sm mr-4">
-                        &copy; devnic.com.br. Todos os direitos reservados.
+                        &copy; Devnic. Todos os direitos reservados.
                     </div>
                 </div>
             </Container>
