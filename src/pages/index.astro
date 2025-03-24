@@ -1,0 +1,128 @@
+---
+import { Hero } from "@blocks/Hero";
+import Layout from "../layouts/Layout.astro";
+import { Logos } from "@blocks/Logos";
+import { Service } from "@blocks/Service";
+import { ImageContent } from "@blocks/ImageContent";
+import { Testimonials } from "@blocks/Testimonials";
+import { Newsletter } from "@blocks/Newsletter";
+---
+
+<Layout title="Devnic" description="YOUR META DESCRIPTION FOR SEO">
+    <main class="page-content">
+        <Hero
+            heroType="contentImage"
+            data={{
+                label: `Começe agora`,
+                logo: "logo",
+                title: `Softwares e soluções para o seu negócio`,
+                description: `Agilidade, segurança e qualidade em um software feito sob medida para você.`,
+                image: "heroImg",
+                button: {
+                    text: "Saiba mais",
+                    link: "#contato",
+                    variant: "primary",
+                },
+            }}
+        />
+        <Logos
+            data={{
+                title: "Empresas que confiam em nós",
+                logos: ["logo1", "logo2"],
+            }}
+        />
+        <Service
+            data={{
+                aboveTitle: "Serviços",
+                title: "Os melhores serviços para você",
+                description:
+                    "Desenvolvemos softwares, aplicativos e integrações sob medida, oferecendo inovação e eficiência para empresas de todos os segmentos.",
+                services: [
+                    {
+                        title: "Software Sob Medida",
+                        description:
+                            "Criação de sistemas personalizados para atender necessidades específicas, como ERPs, CRMs e plataformas web.",
+                        icon: "cloud",
+                    },
+                    {
+                        title: "Aplicativos Mobile",
+                        description:
+                            "Apps para Android e iOS, com foco na experiência do usuário e integração com APIs e sistemas existentes.",
+                        icon: "lock",
+                    },
+                    {
+                        title: "Automação de Processos e Integrações",
+                        description:
+                            "Soluções para automatizar tarefas manuais e integrar ferramentas para otimizar fluxos de trabalho.",
+                        icon: "repeat",
+                    },
+                    {
+                        title: "Consultoria e Suporte Técnico",
+                        description:
+                            "Avaliação de sistemas existentes, melhorias em performance e segurança, além de suporte contínuo para garantir estabilidade.",
+                        icon: "fingerprint",
+                    },
+                ],
+            }}
+        />
+
+        <ImageContent
+            data={{
+                aboveTitle: "Sobre nós",
+                description:
+                    "Somos uma equipe apaixonada por tecnologia, dedicada a desenvolver soluções digitais que transformam ideias em resultados. Unimos experiência, criatividade e comprometimento para impulsionar o sucesso do seu negócio.",
+                image: "about",
+                title: "Tecnologia e inovação que fazem a diferença",
+                imagePosition: "right",
+            }}
+        />
+
+        <ImageContent
+            data={{
+                aboveTitle: "Agilize seus processos",
+                description: "",
+                image: "partner",
+                title: "Faça parte da transformação digital, otimize seus processos e impulsione o crescimento do seu negócio.",
+                imagePosition: "left",
+            }}
+        />
+
+        <Testimonials
+            data={{
+                aboveTitle: "Depoimentos",
+                title: "Os resultados falam por si mesmos",
+                authors: [
+                    {
+                        authorName: "Maicon Willi",
+                        authorRole: "CEO",
+                        content:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    },
+                    {
+                        authorName: "Jane Doe",
+                        authorRole: "CEO",
+                        content:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    },
+                    {
+                        authorName: "John Doe",
+                        authorRole: "CEO",
+                        content:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    },
+                ],
+            }}
+        />
+
+        <Newsletter
+            data={{
+                button: {
+                    label: "Solicitar contato",
+                    link: "/",
+                },
+                title: "Solicite uma reunião e descubra como podemos ajudar o seu negócio",
+            }}
+        />
+    </main>
+</Layout>;
+---
