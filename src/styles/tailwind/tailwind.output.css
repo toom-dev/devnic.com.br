@@ -612,10 +612,6 @@ video {
   border-width: 0;
 }
 
-.static {
-  position: static;
-}
-
 .fixed {
   position: fixed;
 }
@@ -1070,6 +1066,11 @@ video {
 
 .bg-primary\/5 {
   background-color: rgb(255 255 255 / 0.05);
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
 }
 
 .bg-secondary {
