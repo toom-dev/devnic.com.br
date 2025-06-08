@@ -1,77 +1,63 @@
 import { type FC } from "react";
 import { Container } from "@components/Container";
-import * as S from "./styled";
 
 type StatsProps = {
     data: {
         title: string;
-        description: string;
-        stats: {
-            variant: "white" | "blue" | "black";
-            title: string;
+        stats: Array<{
+            value: string;
+            label: string;
             description: string;
-        }[];
+        }>;
     };
 };
 
-export const Stats: FC<StatsProps> = ({
-    data: { description, stats, title },
-}) => {
-    // Do not render if there are no elements
-    if (!stats.length) {
+export const Stats: FC<StatsProps> = ({ data: { title, stats } }) => {
+    if (!stats || stats.length === 0) {
         return null;
     }
 
     return (
-        <section className="my-24 sm:my-48">
+        <section className="py-16 sm:py-24 bg-gradient-to-br from-blue-50 to-purple-50" data-animate>
             <Container>
-                {title && description && (
-                    <div
-                        className="mx-auto max-w-2xl lg:mx-0 mb-20"
-                        data-animate
-                    >
-                        {title && (
-                            <h2 className="text-h2-md font-bold tracking-tight text-secondary">
-                                {title}
-                            </h2>
-                        )}
-                        {description && (
-                            <p className="mt-6 text-p leading-7 text-secondary opacity-80">
-                                {description}
-                            </p>
-                        )}
-                    </div>
-                )}
-                <div
-                    className="grid lg:grid-cols-3 gap-10 lg:gap-20 items-end"
-                    data-animate
-                >
+                <div className="text-center mb-16">
+                    <h2 className="text-h2-md font-bold tracking-tight text-gray-900 mb-4">
+                        {title}
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+                
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                     {stats.map((stat, index) => (
-                        <S.StatCard
-                            $variant={stat.variant}
+                        <div
                             key={index}
-                            className={`flex flex-col justify-between gap-y-8 rounded-2xl p-8 shadow-xl ${
-                                stat.variant === "white"
-                                    ? "bg-primary  text-secondary"
-                                    : stat.variant === "blue"
-                                    ? "bg-tertiary text-primary"
-                                    : "bg-secondary text-gray-300"
-                            }`}
+                            className="relative group"
                         >
-                            <p className="flex-none text-h3 font-bold tracking-tight">
-                                <b>{stat.title}</b>
-                            </p>
-
-                            <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-                                <p
-                                    className="description text-p"
-                                    dangerouslySetInnerHTML={{
-                                        __html: stat.description,
-                                    }}
-                                />
+                            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                                <div className="text-center">
+                                    <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-lg font-semibold text-gray-900 mb-1">
+                                        {stat.label}
+                                    </div>
+                                    <div className="text-sm text-gray-600">
+                                        {stat.description}
+                                    </div>
+                                </div>
+                                
+                                {/* Decorative element */}
+                                <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
-                        </S.StatCard>
+                        </div>
                     ))}
+                </div>
+                
+                <div className="text-center mt-12">
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                        Estes números representam a média dos resultados obtidos pelos nossos clientes nos últimos 12 meses. 
+                        <span className="font-semibold text-gray-900"> Seu negócio pode ser o próximo!</span>
+                    </p>
                 </div>
             </Container>
         </section>

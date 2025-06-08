@@ -1,0 +1,44 @@
+# robots.txt para Devnic Web Solutions
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://devnic.com.br/sitemap.xml
+
+# Crawl-delay (opcional - evita sobrecarga no servidor)
+Crawl-delay: 1
+
+# Bloquear arquivos desnecessários
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
+Disallow: /dist/
+
+# Permitir especificamente páginas importantes
+Allow: /
+Allow: /politica-de-privacidade
+Allow: /termos-de-uso
+Allow: /contato-enviado
+
+# Bots específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block spam bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: / 

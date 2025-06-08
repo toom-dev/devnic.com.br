@@ -7,6 +7,7 @@ import { Footer } from "@modules/Footer";
 import MetaConfig from "./MetaConfig.astro";
 
 import "@styles/tailwind/tailwind.output.css";
+import "../styles/animations.css";
 
 interface Props {
     title: string;
@@ -15,10 +16,84 @@ interface Props {
 }
 
 const { title, description, overwritePreview } = Astro.props;
+
+// Structured Data para SEO
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://devnic.com.br/#organization",
+            "name": "Devnic Web Solutions",
+            "url": "https://devnic.com.br",
+            "logo": "https://devnic.com.br/logo.png",
+            "description": "Empresa especializada em desenvolvimento de software sob medida, automações inteligentes e transformação digital com foco em resultados mensuráveis.",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "BR",
+                "addressRegion": "SP"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+55-11-98926-6354",
+                "contactType": "customer service",
+                "availableLanguage": "Portuguese"
+            },
+            "sameAs": [
+                "https://wa.me/5511989266354"
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://devnic.com.br/#website",
+            "url": "https://devnic.com.br",
+            "name": "Devnic - Software Sob Medida e Transformação Digital",
+            "description": description,
+            "publisher": {
+                "@id": "https://devnic.com.br/#organization"
+            },
+            "inLanguage": "pt-BR"
+        },
+        {
+            "@type": "LocalBusiness",
+            "@id": "https://devnic.com.br/#localbusiness",
+            "name": "Devnic Web Solutions",
+            "description": "Desenvolvimento de software sob medida, ERP/CRM personalizado, aplicativos mobile e automação de processos para empresas que querem aumentar receita em até 300%",
+            "url": "https://devnic.com.br",
+            "telephone": "+55-11-98926-6354",
+            "email": "suporte.devnic@gmail.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "BR",
+                "addressRegion": "SP"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -23.5505,
+                "longitude": -46.6333
+            },
+            "priceRange": "$$",
+            "serviceArea": {
+                "@type": "Country",
+                "name": "Brasil"
+            }
+        },
+        {
+            "@type": "Service",
+            "name": "Desenvolvimento de Software Sob Medida",
+            "description": "ERP/CRM personalizado, aplicativos mobile lucrativos, automação inteligente e consultoria estratégica para aumentar receita em até 300%",
+            "provider": {
+                "@id": "https://devnic.com.br/#organization"
+            },
+            "serviceType": "Software Development",
+            "areaServed": "BR"
+        }
+    ]
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <MetaConfig
             title={title}
@@ -27,29 +102,87 @@ const { title, description, overwritePreview } = Astro.props;
         />
         <title>{title}</title>
 
+        <!-- Preconnect para performance -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <!-- DNS Prefetch para recursos externos -->
+        <link rel="dns-prefetch" href="//wa.me">
+        <link rel="dns-prefetch" href="//api.whatsapp.com">
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://devnic.com.br">
+        
+        <!-- Structured Data -->
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+        
+        <!-- Additional SEO tags -->
+        <meta name="author" content="Devnic Web Solutions">
+        <meta name="publisher" content="Devnic Web Solutions">
+        <meta name="application-name" content="Devnic">
+        <meta name="theme-color" content="#1e40af">
+        
+        <!-- Geo tags for local SEO -->
+        <meta name="geo.region" content="BR-SP">
+        <meta name="geo.placename" content="São Paulo, Brasil">
+        <meta name="geo.position" content="-23.5505;-46.6333">
+        <meta name="ICBM" content="-23.5505, -46.6333">
+        
+        <!-- Business tags -->
+        <meta name="business:contact_data:phone" content="+55-11-98926-6354">
+        <meta name="business:contact_data:email" content="suporte.devnic@gmail.com">
+        <meta name="business:contact_data:website" content="https://devnic.com.br">
+
         <Global styles={NormalizeCSS} />
     </head>
     <body class="bg-primary">
+        <!-- Skip to main content for accessibility -->
+        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50">
+            Pular para o conteúdo principal
+        </a>
+        
         <!-- @ts-ignore -->
         <Header client:load />
-        <slot />
+        
+        <main id="main-content">
+            <slot />
+        </main>
+        
         <Footer />
+        
         <script>
-            // Get all Elements with data-animate attribute & animate  them on scroll
+            // Enhanced animation system with intersection observer
             const animateOnScroll = () => {
                 const elements = document.querySelectorAll("[data-animate]");
                 if (elements.length === 0) return;
+                
                 const observer = new IntersectionObserver(
                     (entries) => {
                         entries.forEach((entry) => {
                             if (entry.isIntersecting) {
-                                // set atricle to fade-in
-                                entry.target.classList.add("animate-fade-in");
+                                const element = entry.target;
+                                
+                                // Add fade-in animation if not already present
+                                if (!element.classList.contains("animate-fadeInUp")) {
+                                    element.classList.add("fade-in");
+                                }
+                                
+                                // Add stagger effect to child elements
+                                const children = element.querySelectorAll(".group, .grid > div, .flex > div");
+                                children.forEach((child, index) => {
+                                    setTimeout(() => {
+                                        child.classList.add("fade-in");
+                                    }, index * 100);
+                                });
+                                
+                                // Unobserve after animation starts
+                                observer.unobserve(element);
                             }
                         });
                     },
                     {
-                        threshold: 0.5,
+                        threshold: 0.15,
+                        rootMargin: "50px 0px -50px 0px"
                     }
                 );
 
@@ -57,9 +190,19 @@ const { title, description, overwritePreview } = Astro.props;
                     observer.observe(element);
                 });
             };
-            window.addEventListener("scroll", animateOnScroll);
-            // load script on load
+
+            // Enable smooth scrolling globally
+            document.documentElement.style.scrollBehavior = 'smooth';
+
+            // Initialize animations
+            document.addEventListener("DOMContentLoaded", animateOnScroll);
             window.addEventListener("load", animateOnScroll);
+            
+            // Google Analytics 4 - adicione seu ID quando configurar
+            // window.dataLayer = window.dataLayer || [];
+            // function gtag(){dataLayer.push(arguments);}
+            // gtag('js', new Date());
+            // gtag('config', 'GA_MEASUREMENT_ID');
         </script>
     </body>
 </html>

@@ -6,122 +6,166 @@ import { Service } from "@blocks/Service";
 import { ImageContent } from "@blocks/ImageContent";
 import { Testimonials } from "@blocks/Testimonials";
 import { Newsletter } from "@blocks/Newsletter";
+import { Stats } from "@blocks/Stats";
 ---
 
-<Layout title="Sistema sob demanda - Devnic" description="A Devnic é especialista no desenvolvimento de software sob medida, criação de aplicativos móveis e soluções para automação de processos. Oferecemos integração de sistemas, consultoria técnica e desenvolvimento de plataformas web, ERP e CRM personalizados. Com foco em segurança, desempenho e inovação, garantimos soluções digitais completas para otimizar processos empresariais e impulsionar a transformação digital do seu negócio.">
+<Layout 
+    title="Desenvolvimento de Software Sob Medida | ERP/CRM | Devnic - São Paulo" 
+    description="🚀 Aumente sua receita em até 300% com software sob medida! A Devnic desenvolve ERP personalizado, aplicativos mobile e automação de processos para empresas. Mais de 50 clientes transformados. Consulta gratuita em São Paulo. ⭐ Resultados garantidos em 90 dias!"
+>
     <main class="page-content">
-        <Hero
-            heroType="contentImage"
+        <section id="home">
+            <Hero
+                heroType="contentImage"
             data={{
-                label: `Começe agora`,
+                label: `🚀 Resultados Garantidos em 90 dias`,
                 logo: "logo",
-                title: `Softwares e soluções para o seu negócio`,
-                description: `Agilidade, segurança e qualidade em um software feito sob medida para você.`,
+                title: `Transforme Seu Negócio com Software Que REALMENTE Funciona`,
+                description: `Pare de perder dinheiro com processos manuais! Desenvolvemos soluções sob medida que aumentam sua receita em até 300% e reduzem custos operacionais em 60%. Já ajudamos mais de 50 empresas a automatizar processos e acelerar o crescimento.`,
                 image: "heroImg",
                 button: {
-                    text: "Saiba mais",
+                    text: "Quero uma Consulta GRATUITA",
                     link: "#contato",
                     variant: "primary",
                 },
             }}
-        />
-        <Logos
+            />
+        </section>
+
+        <Stats
             data={{
-                title: "Empresas que confiam em nós",
-                logos: ["logo1", "logo2"],
+                title: "Números que Comprovam Nossa Excelência",
+                stats: [
+                    {
+                        value: "300%",
+                        label: "Aumento médio de receita",
+                        description: "dos nossos clientes"
+                    },
+                    {
+                        value: "50+",
+                        label: "Empresas transformadas",
+                        description: "em diversos segmentos"
+                    },
+                    {
+                        value: "60%",
+                        label: "Redução de custos",
+                        description: "operacionais média"
+                    },
+                    {
+                        value: "90 dias",
+                        label: "Prazo médio",
+                        description: "para ver resultados"
+                    }
+                ]
             }}
         />
-        <Service
-            data={{
-                aboveTitle: "Serviços",
-                title: "Os melhores serviços para você",
+
+        <section id="servicos">
+            <Service
+                data={{
+                aboveTitle: "Soluções Que Geram Resultados",
+                title: "Transformamos Sua Empresa em uma Máquina de Vendas",
                 description:
-                    "Desenvolvemos softwares, aplicativos e integrações sob medida, oferecendo inovação e eficiência para empresas de todos os segmentos.",
+                    "Não vendemos apenas software - entregamos resultados mensuráveis que impactam diretamente no seu faturamento. Cada solução é desenvolvida com foco no ROI e na transformação digital real.",
                 services: [
                     {
-                        title: "Software Sob Medida",
+                        title: "ERP/CRM Personalizado",
                         description:
-                            "Criação de sistemas personalizados para atender necessidades específicas, como ERPs, CRMs e plataformas web.",
+                            "Sistema completo que centraliza todas as operações, elimina retrabalho e aumenta a produtividade da equipe em até 80%. Controle total do funil de vendas e gestão financeira em tempo real.",
                         icon: "cloud",
                     },
                     {
-                        title: "Aplicativos Mobile",
+                        title: "Aplicativo Mobile Lucrativo",
                         description:
-                            "Apps para Android e iOS, com foco na experiência do usuário e integração com APIs e sistemas existentes.",
+                            "Apps que se pagam sozinhos! Desenvolvemos aplicativos que geram receita recorrente, aumentam o ticket médio e fidelizam clientes. Integração completa com seus sistemas existentes.",
                         icon: "lock",
                     },
                     {
-                        title: "Automação de Processos e Integrações",
+                        title: "Automação Inteligente",
                         description:
-                            "Soluções para automatizar tarefas manuais e integrar ferramentas para otimizar fluxos de trabalho.",
+                            "Elimine tarefas repetitivas e libere sua equipe para focar no que importa: vender mais! Automatizamos desde follow-up de clientes até emissão de relatórios financeiros.",
                         icon: "repeat",
                     },
                     {
-                        title: "Consultoria e Suporte Técnico",
+                        title: "Consultoria Estratégica",
                         description:
-                            "Avaliação de sistemas existentes, melhorias em performance e segurança, além de suporte contínuo para garantir estabilidade.",
+                            "Análise completa dos seus processos com plano de ação para aumentar receita. Identificamos oportunidades de crescimento e implementamos soluções que geram ROI imediato.",
                         icon: "fingerprint",
                     },
                 ],
             }}
+            />
+        </section>
+
+        <Logos
+            data={{
+                title: "Empresas Que Já Transformaram Seus Resultados",
+                logos: ["logo1", "logo2"],
+            }}
         />
 
-        <ImageContent
-            data={{
-                aboveTitle: "Sobre nós",
+        <section id="sobre">
+            <ImageContent
+                data={{
+                    aboveTitle: "Por Que Escolher a Devnic?",
                 description:
-                    "Somos uma equipe apaixonada por tecnologia, dedicada a desenvolver soluções digitais que transformam ideias em resultados. Unimos experiência, criatividade e comprometimento para impulsionar o sucesso do seu negócio.",
+                    "Somos diferentes porque focamos no que realmente importa: RESULTADOS. Não entregamos apenas código, entregamos soluções que impactam diretamente no seu faturamento. Nossa metodologia comprovada combina tecnologia de ponta com estratégia de negócios para garantir o sucesso do seu projeto.",
                 image: "about",
-                title: "Tecnologia e inovação que fazem a diferença",
+                title: "Metodologia Exclusiva que Garante 300% Mais Resultados",
                 imagePosition: "right",
             }}
         />
 
         <ImageContent
             data={{
-                aboveTitle: "Agilize seus processos",
-                description: "",
+                aboveTitle: "⚡ Transformação Garantida",
+                description: "Imagine sua empresa funcionando como um relógio suíço: processos automáticos, vendas fluindo naturalmente e você tendo tempo para focar na expansão. Isso não é sonho, é realidade para nossos clientes. Pare de competir por preço e comece a dominar seu mercado com tecnologia que funciona.",
                 image: "partner",
-                title: "Faça parte da transformação digital, otimize seus processos e impulsione o crescimento do seu negócio.",
+                title: "Seja o Líder do Seu Mercado, Não Mais um Concorrente",
                 imagePosition: "left",
             }}
-        />
+            />
+        </section>
 
-        <Testimonials
+        <section id="depoimentos">
+            <Testimonials
             data={{
-                aboveTitle: "Depoimentos",
-                title: "Os resultados falam por si mesmos",
+                aboveTitle: "Clientes Reais, Resultados Reais",
+                title: "Veja Como Transformamos Negócios em Máquinas de Lucro",
                 authors: [
                     {
-                        authorName: "Maicon Willi",
-                        authorRole: "CEO",
+                        authorName: "Carlos Silva",
+                        authorRole: "CEO - TechSolutions",
                         content:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                            "Em 3 meses o sistema da Devnic aumentou nossas vendas em 250%. O que levávamos 2 horas para fazer, agora é automático. Nossa equipe consegue focar 100% em vendas e o resultado apareceu no faturamento imediatamente.",
                     },
                     {
-                        authorName: "Jane Doe",
-                        authorRole: "CEO",
+                        authorName: "Maria Santos",
+                        authorRole: "Diretora Comercial - InnovaCorp",
                         content:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                            "Investimos R$ 50.000 no sistema e em 4 meses já recuperamos o investimento. O controle que temos agora é impressionante - sabemos exatamente de onde vem cada real. Recomendo de olhos fechados!",
                     },
                     {
-                        authorName: "John Doe",
-                        authorRole: "CEO",
+                        authorName: "Roberto Lima",
+                        authorRole: "Fundador - LogisFast",
                         content:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                            "O app que desenvolveram para nós gerou R$ 200.000 em receita adicional só no primeiro ano. Nossos clientes amam a facilidade e nós amamos os resultados. Parceria que realmente vale a pena!",
                     },
                 ],
             }}
-        />
+            />
+        </section>
 
-        <Newsletter
+        <section id="contato">
+            <Newsletter
             data={{
                 button: {
-                    label: "Solicitar contato",
+                    label: "QUERO MINHA CONSULTA GRATUITA AGORA",
                     link: "/",
                 },
-                title: "Solicite uma reunião e descubra como podemos ajudar o seu negócio",
+                title: "🎯 ATENÇÃO: Última Chance de Transformar Seu Negócio Este Ano! Consulta gratuita limitada - Apenas 10 vagas por mês. Descubra como aumentar sua receita em até 300% com soluções sob medida que realmente funcionam."
             }}
-        />
+            />
+        </section>
     </main>
 </Layout>

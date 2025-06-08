@@ -4,48 +4,45 @@ import CompressionPlugin from "vite-plugin-compression";
 import sitemap from "@astrojs/sitemap";
 import svgr from "vite-plugin-svgr";
 import tailwind from "@astrojs/tailwind";
+import robotsTxt from "astro-robots-txt";
 
 import vercel from "@astrojs/vercel";
 
-export const siteUrl = "https://inside-media-landing.netlify.app/";
+export const siteUrl = "https://devnic.com.br";
 
 const date = new Date().toISOString();
 // https://astro.build/config
 export default defineConfig({
-  site: siteUrl + "/",
+  site: siteUrl,
 
   integrations: [
       react(),
       svgr(),
       sitemap({
+          changefreq: 'weekly',
+          priority: 0.7,
+          lastmod: new Date(),
+          entryLimit: 10000,
           serialize(item) {
-              // Default values for pages
-              item.priority = siteUrl + "/" === item.url ? 1.0 : 0.9;
-              item.changefreq = "weekly";
-              item.lastmod = date;
-
-              // if you want to exclude a page from the sitemap, do it here
-              // if (/exclude-from-sitemap/.test(item.url)) {
-              //     return undefined;
-              // }
-
-              // if any page needs a different priority, changefreq, or lastmod, uncomment the following lines and adjust as needed
-              // if (/test-sitemap/.test(item.url)) {
-              //     item.changefreq = "daily";
-              //     item.lastmod = date;
-              //     item.priority = 0.9;
-              // }
-
-              // if you want to change priority of all subpages like "/posts/*", you can use:
-              // if (/\/posts\//.test(item.url)) {
-              //     item.priority = 0.7;
-              // }
+              // Configurar prioridades específicas
+              if (item.url === siteUrl + '/') {
+                  item.priority = 1.0;
+                  item.changefreq = 'weekly';
+              }
+              if (item.url.includes('politica-de-privacidade') || item.url.includes('termos-de-uso')) {
+                  item.priority = 0.3;
+                  item.changefreq = 'monthly';
+              }
               return item;
-          },
+          }
       }),
       tailwind({
           configFile: "./tailwind.config.js",
       }),
+      robotsTxt({
+          sitemap: [`${siteUrl}/sitemap-index.xml`, `${siteUrl}/sitemap-0.xml`],
+          host: siteUrl
+      })
   ],
 
   renderers: ["@astrojs/renderer-react"],
@@ -53,6 +50,23 @@ export default defineConfig({
 
   vite: {
       plugins: [CompressionPlugin(), svgr()],
+      build: {
+          // Minificação para produção
+          minify: 'esbuild',
+          // Code splitting
+          rollupOptions: {
+              output: {
+                  manualChunks: {
+                      'react': ['react', 'react-dom'],
+                      'form': ['react-hook-form', '@hookform/resolvers', 'zod'],
+                      'ui': ['react-input-mask']
+                  }
+              }
+          }
+      },
+      css: {
+          transformer: 'postcss'
+      }
   },
 
   buildOptions: {
@@ -60,4 +74,14 @@ export default defineConfig({
   },
 
   adapter: vercel(),
+
+  server: {
+      // Headers de segurança e performance
+      headers: {
+          "X-Frame-Options": "DENY",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "Permissions-Policy": "geolocation=(), microphone=(), camera=()"
+      }
+  }
 });

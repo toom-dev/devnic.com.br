@@ -10,17 +10,19 @@ interface Props {
 const { title, description, preview } = Astro.props;
 
 /**
- * keep whole metadata in one place
+ * SEO otimizado para Devnic - empresa de software sob medida
  */
 const metaData = {
     keywords:
-        "Desenvolvimento de software sob medida, Criação de aplicativos móveis, Soluções para automação de processos, Integração de sistemas, Serviços de consultoria técnica, Desenvolvimento de ERP, Sistemas de CRM, Plataformas web, Desenvolvimento de aplicativos Android, Desenvolvimento de aplicativos iOS, Integração de APIs, Otimização de fluxos de trabalho, Melhoria de desempenho, Aperfeiçoamento de segurança, Suporte contínuo, Transformação digital, Otimização de processos empresariais, Consultoria em software, Soluções de software personalizadas, Design de experiência do usuário, Soluções ERP personalizadas, Soluções CRM personalizadas, Desenvolvimento de aplicações web, Interface de usuário para mobile, Ajuste de desempenho de sistemas",
+        "desenvolvimento de software sob medida, ERP personalizado, CRM customizado, aplicativo mobile empresarial, automação de processos, transformação digital, software para empresas, sistema de gestão, consultoria em tecnologia, desenvolvimento web, app mobile, integração de sistemas, otimização de processos, software corporativo, solução digital, programação sob encomenda, sistema empresarial, automação inteligente, ROI tecnologia, São Paulo, Brasil, Devnic, aumento de receita, redução de custos, produtividade empresarial, gestão empresarial, inovação tecnológica, startup, PME, empresa média, grande empresa",
     default: {
         url: siteUrl,
         type: "website",
         title: title,
         description: description,
         image: preview,
+        siteName: "Devnic Web Solutions",
+        locale: "pt_BR"
     },
     twitter: {
         card: "summary_large_image",
@@ -29,46 +31,97 @@ const metaData = {
         image: preview,
         domain: siteUrl,
         url: siteUrl,
+        site: "@devnic",
+        creator: "@devnic"
     },
 };
 ---
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<!-- icons -->
+<!-- Favicon completo -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="48x48" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="manifest" href="/site.webmanifest" />
 
-<!-- Other meta important things -->
+<!-- Meta tags principais -->
 <meta name="generator" content={Astro.generator} />
 <meta name="description" content={description} />
-<meta name="color-scheme" content="light only" />
 <meta name="keywords" content={metaData.keywords} />
+<meta name="author" content="Devnic Web Solutions" />
+<meta name="publisher" content="Devnic Web Solutions" />
+<meta name="copyright" content="© 2024 Devnic Web Solutions. Todos os direitos reservados." />
+<meta name="language" content="Portuguese" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="revisit-after" content="7 days" />
 
+<!-- Configurações de tema e cor -->
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#1e40af" />
+<meta name="msapplication-TileColor" content="#1e40af" />
+
+<!-- Configurações de robôs otimizadas -->
 <meta
     name="robots"
     content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
 />
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="bingbot" content="index, follow" />
 
-<!-- default ones -->
+<!-- Meta tags padrão -->
 <meta property="url" content={metaData.default.url} />
 <meta property="type" content={metaData.default.type} />
 <meta property="title" content={metaData.default.title} />
 <meta property="description" content={metaData.default.description} />
 <meta property="image" content={metaData.default.image as string} />
+<meta property="locale" content={metaData.default.locale} />
 
-<!-- open graph ones -->
+<!-- Open Graph otimizado -->
 <meta property="og:url" content={metaData.default.url} />
 <meta property="og:type" content={metaData.default.type} />
 <meta property="og:title" content={metaData.default.title} />
 <meta property="og:description" content={metaData.default.description} />
 <meta property="og:image" content={metaData.default.image as string} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:site_name" content={metaData.default.siteName} />
+<meta property="og:locale" content={metaData.default.locale} />
 
-<!-- twitter ones -->
+<!-- Facebook específico -->
+<meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID" />
+
+<!-- Twitter Cards otimizado -->
 <meta name="twitter:card" content={metaData.twitter.card} />
+<meta name="twitter:site" content={metaData.twitter.site} />
+<meta name="twitter:creator" content={metaData.twitter.creator} />
 <meta name="twitter:title" content={metaData.twitter.title} />
 <meta name="twitter:description" content={metaData.twitter.description} />
 <meta name="twitter:image" content={metaData.twitter.image as string} />
+<meta name="twitter:image:alt" content="Devnic Web Solutions - Software sob medida para empresas" />
 <meta property="twitter:domain" content={metaData.twitter.domain} />
 <meta property="twitter:url" content={metaData.twitter.url} />
+
+<!-- LinkedIn específico -->
+<meta property="og:image:alt" content="Devnic Web Solutions - Transformação digital com resultados garantidos" />
+
+<!-- Tags de negócio local -->
+<meta name="business:contact_data:street_address" content="São Paulo" />
+<meta name="business:contact_data:locality" content="São Paulo" />
+<meta name="business:contact_data:region" content="SP" />
+<meta name="business:contact_data:postal_code" content="01000-000" />
+<meta name="business:contact_data:country_name" content="Brasil" />
+
+<!-- Performance e Cache -->
+<meta http-equiv="Cache-Control" content="max-age=31536000" />
+
+<!-- Verificação do Google Search Console -->
+<!-- <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" /> -->
+
+<!-- Verificação do Bing Webmaster Tools -->
+<!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" /> -->
