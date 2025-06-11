@@ -7,6 +7,7 @@ import { Footer } from "@modules/Footer";
 import MetaConfig from "./MetaConfig.astro";
 
 import Analytics from '@vercel/analytics/astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 import "@styles/tailwind/tailwind.output.css";
 import "../styles/animations.css";
@@ -138,13 +139,7 @@ const structuredData = {
         <Global styles={NormalizeCSS} />
 
         <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBDZE154W3"></script>
-        <script is:inline>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-EBDZE154W3');
-        </script>
+        <GoogleAnalytics id="G-EBDZE154W3" />
     </head>
     <body class="bg-primary text-secondary">
         <!-- Skip to main content for accessibility -->
