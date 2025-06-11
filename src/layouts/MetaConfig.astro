@@ -10,11 +10,11 @@ interface Props {
 const { title, description, preview } = Astro.props;
 
 /**
- * SEO otimizado para Devnic - empresa de software sob medida
+ * SEO otimizado para Devnic - consultoria em TI
  */
 const metaData = {
     keywords:
-        "desenvolvimento de software sob medida, ERP personalizado, CRM customizado, aplicativo mobile empresarial, automação de processos, transformação digital, software para empresas, sistema de gestão, consultoria em tecnologia, desenvolvimento web, app mobile, integração de sistemas, otimização de processos, software corporativo, solução digital, programação sob encomenda, sistema empresarial, automação inteligente, ROI tecnologia, São Paulo, Brasil, Devnic, aumento de receita, redução de custos, produtividade empresarial, gestão empresarial, inovação tecnológica, startup, PME, empresa média, grande empresa",
+        "consultoria em TI, transformação digital, infraestrutura de TI, segurança da informação, cloud computing, otimização de processos, gestão de tecnologia, suporte 24/7, Devnic, São Paulo, Brasil, redução de custos, aumento de produtividade, inovação tecnológica, estratégia em TI",
     default: {
         url: siteUrl,
         type: "website",
@@ -103,7 +103,7 @@ const metaData = {
 <meta name="twitter:title" content={metaData.twitter.title} />
 <meta name="twitter:description" content={metaData.twitter.description} />
 <meta name="twitter:image" content={metaData.twitter.image as string} />
-<meta name="twitter:image:alt" content="Devnic Web Solutions - Software sob medida para empresas" />
+<meta name="twitter:image:alt" content="Devnic Web Solutions - Consultoria em TI para empresas" />
 <meta property="twitter:domain" content={metaData.twitter.domain} />
 <meta property="twitter:url" content={metaData.twitter.url} />
 
