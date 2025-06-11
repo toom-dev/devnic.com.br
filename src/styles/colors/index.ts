@@ -2,9 +2,9 @@ import { css } from "@emotion/react";
 
 // use this colors only if necessary - use Theme for colors
 export const Colors = {
-    primary: "#FFFFFF",
-    secondary: "#111827",
-    tertiary: "#00b2ff",
+    primary: "#0f172a", // dark background
+    secondary: "#f8fafc", // light text
+    tertiary: "#1e40af", // corporate blue
 };
 
 export const ThemeVar = css`

@@ -45,9 +45,9 @@ export const Header: FC = () => {
 
     return (
         <S.HeaderStyled
-            className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ease-in-out bg-white/80 backdrop-blur-xl ${
-                isScrolled 
-                    ? 'border-b border-gray-200/20 shadow-lg' 
+            className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ease-in-out bg-primary/90 backdrop-blur-xl ${
+                isScrolled
+                    ? 'border-b border-secondary/20 shadow-lg'
                     : ''
             }`}
             ref={headerRef}
@@ -62,27 +62,27 @@ export const Header: FC = () => {
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center space-x-8">
                         <nav className="flex items-center space-x-6">
-                            <button 
+                            <button
                                 onClick={() => scrollToSection('home')}
-                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
+                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
                             >
                                 Início
                             </button>
-                            <button 
+                            <button
                                 onClick={() => scrollToSection('servicos')}
-                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
+                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
                             >
                                 Serviços
                             </button>
-                            <button 
+                            <button
                                 onClick={() => scrollToSection('sobre')}
-                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
+                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
                             >
                                 Sobre
                             </button>
-                            <button 
+                            <button
                                 onClick={() => scrollToSection('depoimentos')}
-                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
+                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
                             >
                                 Depoimentos
                             </button>
@@ -90,9 +90,9 @@ export const Header: FC = () => {
                         
                         {/* CTA Button */}
                         <div className="flex items-center space-x-4">
-                            <a 
-                                href="tel:+551198926-6354" 
-                                className="text-sm font-medium transition-colors duration-200 hover:text-blue-600 text-gray-600"
+                            <a
+                                href="tel:+551198926-6354"
+                                className="text-sm font-medium transition-colors duration-200 hover:text-tertiary text-secondary/70"
                             >
                                 📞 (11) 98926-6354
                             </a>
@@ -109,7 +109,7 @@ export const Header: FC = () => {
                     <div className="lg:hidden">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 rounded-lg transition-colors duration-200 text-gray-700 hover:bg-gray-100"
+                            className="p-2 rounded-lg transition-colors duration-200 text-secondary hover:bg-secondary/10"
                         >
                             <svg 
                                 className="w-6 h-6" 
@@ -129,29 +129,29 @@ export const Header: FC = () => {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-200/20 shadow-xl">
+                    <div className="lg:hidden absolute top-full left-0 w-full bg-primary/95 backdrop-blur-xl border-b border-secondary/20 shadow-xl">
                         <div className="px-4 py-6 space-y-4">
                             <button 
                                 onClick={() => scrollToSection('home')}
-                                className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
                             >
                                 Início
                             </button>
                             <button 
                                 onClick={() => scrollToSection('servicos')}
-                                className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
                             >
                                 Serviços
                             </button>
                             <button 
                                 onClick={() => scrollToSection('sobre')}
-                                className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
                             >
                                 Sobre
                             </button>
                             <button 
                                 onClick={() => scrollToSection('depoimentos')}
-                                className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
                             >
                                 Depoimentos
                             </button>
@@ -159,7 +159,7 @@ export const Header: FC = () => {
                             <div className="pt-4 border-t border-gray-200">
                                 <a 
                                     href="tel:+551198926-6354" 
-                                    className="block text-gray-600 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                                    className="block text-secondary/70 text-sm font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 transition-colors duration-200"
                                 >
                                     📞 (11) 98926-6354
                                 </a>
