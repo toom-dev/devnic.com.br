@@ -81,14 +81,14 @@ export const Newsletter: FC<NewsletterProps> = ({
             if (result.success) {
                 setMessage({
                     type: 'success',
-                    text: '🎉 Mensagem enviada! Nossa equipe entrará em contato em breve.'
+                    text: '🎉 Mensagem enviada! Abrindo conversa no WhatsApp...'
                 });
+
+                const waText = encodeURIComponent(
+                    `Olá, meu nome é ${data.name}.\nE-mail: ${data.email}\nTelefone: ${data.phone}${data.message ? `\nMensagem: ${data.message}` : ''}`
+                );
+                window.open(`https://wa.me/5511989266354?text=${waText}`, '_blank');
                 reset(); // Limpa o formulário
-                
-                // Redirecionar após 2 segundos
-                setTimeout(() => {
-                    window.location.href = "/contato-enviado";
-                }, 2000);
             } else {
                 setMessage({
                     type: 'error',
