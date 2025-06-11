@@ -6,6 +6,8 @@ import { Header } from "@modules/Header";
 import { Footer } from "@modules/Footer";
 import MetaConfig from "./MetaConfig.astro";
 
+import Analytics from '@vercel/analytics/astro';
+
 import "@styles/tailwind/tailwind.output.css";
 import "../styles/animations.css";
 
@@ -134,6 +136,15 @@ const structuredData = {
         <meta name="business:contact_data:website" content="https://devnic.com.br">
 
         <Global styles={NormalizeCSS} />
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBDZE154W3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EBDZE154W3');
+        </script>
     </head>
     <body class="bg-primary text-secondary">
         <!-- Skip to main content for accessibility -->
@@ -149,7 +160,8 @@ const structuredData = {
         </main>
         
         <Footer />
-        
+        <Analytics />
+
         <script>
             // Enhanced animation system with intersection observer
             const animateOnScroll = () => {
@@ -198,11 +210,7 @@ const structuredData = {
             document.addEventListener("DOMContentLoaded", animateOnScroll);
             window.addEventListener("load", animateOnScroll);
             
-            // Google Analytics 4 - adicione seu ID quando configurar
-            // window.dataLayer = window.dataLayer || [];
-            // function gtag(){dataLayer.push(arguments);}
-            // gtag('js', new Date());
-            // gtag('config', 'GA_MEASUREMENT_ID');
+            // Google Analytics configured in head
         </script>
     </body>
 </html>
