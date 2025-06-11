@@ -41,7 +41,7 @@ export const POST: APIRoute = async ({ request }) => {
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; text-align: center; color: white;">
                         <h1 style="margin: 0; font-size: 28px;">Devnic</h1>
-                        <p style="margin: 10px 0 0; font-size: 16px; opacity: 0.9;">Soluções Digitais Sob Medida</p>
+                        <p style="margin: 10px 0 0; font-size: 16px; opacity: 0.9;">Consultoria em TI Estratégica</p>
                     </div>
                     
                     <div style="padding: 40px 30px; background: #f8f9fa;">
@@ -55,7 +55,7 @@ export const POST: APIRoute = async ({ request }) => {
                             <h3 style="color: #333; margin-top: 0;">O que você pode esperar:</h3>
                             <ul style="color: #666; line-height: 1.8;">
                                 <li>Análise personalizada das suas necessidades</li>
-                                <li>Proposta sob medida para seu projeto</li>
+                                <li>Proposta personalizada para seu projeto</li>
                                 <li>Suporte especializado durante todo o processo</li>
                                 <li>Soluções que geram resultados reais</li>
                             </ul>

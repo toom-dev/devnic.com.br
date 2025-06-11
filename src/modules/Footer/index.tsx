@@ -44,8 +44,8 @@ export const Footer: FC = () => {
                                     </div>
                                 </div>
                                 <p className="text-blue-100 text-lg leading-relaxed mb-8 max-w-md">
-                                    Transformamos ideias em soluções digitais que <strong>realmente funcionam</strong>. 
-                                    Agilidade, segurança e qualidade em um software feito sob medida para você.
+                                    Transformamos desafios em estratégias tecnológicas que <strong>impulsionam resultados</strong>.
+                                    Agilidade, segurança e excelência em consultoria de TI.
                                 </p>
                                 
                                 {/* Stats */}
