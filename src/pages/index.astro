@@ -11,24 +11,24 @@ import { Stats } from "@blocks/Stats";
 
 <Layout
     title="Consultoria em TI Especializada | Devnic - São Paulo"
-    description="🚀 Alcance novos níveis com consultoria em TI! A Devnic otimiza infraestrutura, segurança e processos para empresas de todos os portes. Mais de 200 projetos entregues com sucesso. Diagnóstico gratuito em São Paulo. ⭐ Resultados garantidos!"
+    description="Alcance novos níveis com consultoria em TI! A Devnic otimiza infraestrutura, segurança e processos para empresas de todos os portes. Mais de 200 projetos entregues com sucesso. Diagnóstico gratuito em São Paulo. Resultados garantidos!"
 >
     <main class="page-content">
-        <section id="home">
+        <section id="home" class="pt-16">
             <Hero
                 heroType="contentImage"
-            data={{
-                label: `🚀 Resultados Garantidos em 90 dias`,
-                logo: "logo",
-                title: `Potencialize Seu Negócio com Consultoria em TI de Alto Nível`,
-                description: `Chega de improvisar em tecnologia! Nossa consultoria identifica oportunidades, otimiza processos e reduz custos. Mais de 200 projetos bem-sucedidos.`,
-                image: "heroImg",
-                button: {
-                    text: "Quero um Diagnóstico GRATUITO",
-                    link: "#contato",
-                    variant: "primary",
-                },
-            }}
+                data={{
+                    label: "Resultados Garantidos em 90 dias",
+                    logo: "logo",
+                    title: "Potencialize Seu Negócio com Consultoria em TI de Alto Nível",
+                    description: "Chega de improvisar em tecnologia! Nossa consultoria identifica oportunidades, otimiza processos e reduz custos. Mais de 200 projetos bem-sucedidos.",
+                    image: "heroImg",
+                    button: {
+                        text: "Quero um Diagnóstico GRATUITO",
+                        link: "#contato",
+                        variant: "primary",
+                    },
+                }}
             />
         </section>
 
@@ -37,24 +37,20 @@ import { Stats } from "@blocks/Stats";
                 title: "Resultados que Falam por Si",
                 stats: [
                     {
-                        value: "200+",
+                        number: "200+",
                         label: "Projetos de TI otimizados",
-                        description: "nos últimos anos"
                     },
                     {
-                        value: "99%",
+                        number: "99%",
                         label: "Clientes satisfeitos",
-                        description: "com as soluções implementadas"
                     },
                     {
-                        value: "40%",
+                        number: "40%",
                         label: "Redução média de custos",
-                        description: "em infraestrutura"
                     },
                     {
-                        value: "24/7",
+                        number: "24/7",
                         label: "Suporte especializado",
-                        description: "à sua disposição"
                     }
                 ]
             }}
@@ -63,37 +59,32 @@ import { Stats } from "@blocks/Stats";
         <section id="servicos">
             <Service
                 data={{
-                aboveTitle: "Soluções de Consultoria",
-                title: "Tecnologia Estratégica para Crescer com Segurança",
-                description:
-                    "Oferecemos consultoria completa para planejar, implementar e evoluir sua infraestrutura de TI. Trabalhamos lado a lado para que você foque no negócio.",
-                services: [
-                    {
-                        title: "Transformação Digital",
-                        description:
-                            "Planejamento estratégico e roadmap tecnológico para tornar seu negócio mais eficiente e competitivo.",
-                        icon: "cloud",
-                    },
-                    {
-                        title: "Infraestrutura & Cloud",
-                        description:
-                            "Gerenciamento de servidores, migração para nuvem e monitoramento para máxima disponibilidade.",
-                        icon: "fingerprint",
-                    },
-                    {
-                        title: "Segurança da Informação",
-                        description:
-                            "Proteção de dados, análise de vulnerabilidades e políticas de segurança personalizadas.",
-                        icon: "lock",
-                    },
-                    {
-                        title: "Otimização de Processos",
-                        description:
-                            "Automação e integração de sistemas para reduzir custos e aumentar a produtividade.",
-                        icon: "repeat",
-                    },
-                ],
-            }}
+                    aboveTitle: "Soluções de Consultoria",
+                    title: "Tecnologia Estratégica para Crescer com Segurança",
+                    description: "Oferecemos consultoria completa para planejar, implementar e evoluir sua infraestrutura de TI. Trabalhamos lado a lado para que você foque no negócio.",
+                    services: [
+                        {
+                            title: "Transformação Digital",
+                            description: "Planejamento estratégico e roadmap tecnológico para tornar seu negócio mais eficiente e competitivo.",
+                            icon: "cloud",
+                        },
+                        {
+                            title: "Infraestrutura & Cloud",
+                            description: "Gerenciamento de servidores, migração para nuvem e monitoramento para máxima disponibilidade.",
+                            icon: "fingerprint",
+                        },
+                        {
+                            title: "Segurança da Informação",
+                            description: "Proteção de dados, análise de vulnerabilidades e políticas de segurança personalizadas.",
+                            icon: "lock",
+                        },
+                        {
+                            title: "Otimização de Processos",
+                            description: "Automação e integração de sistemas para reduzir custos e aumentar a produtividade.",
+                            icon: "repeat",
+                        },
+                    ],
+                }}
             />
         </section>
 
@@ -108,63 +99,63 @@ import { Stats } from "@blocks/Stats";
             <ImageContent
                 data={{
                     aboveTitle: "Por Que Escolher a Devnic?",
-                description:
-                    "Somos especialistas em consultoria de TI. Nossos projetos combinam visão estratégica e know-how técnico para entregar soluções que geram retorno real.",
-                image: "about",
-                title: "Expertise em Tecnologia para Impulsionar Resultados",
-                imagePosition: "right",
-            }}
-        />
+                    description: "Somos especialistas em consultoria de TI. Nossos projetos combinam visão estratégica e know-how técnico para entregar soluções que geram retorno real.",
+                    image: "about",
+                    title: "Expertise em Tecnologia para Impulsionar Resultados",
+                    imagePosition: "right",
+                }}
+            />
 
-        <ImageContent
-            data={{
-                aboveTitle: "⚡ Parceria que Gera Valor",
-                description: "Trabalhamos de forma transparente e próxima, garantindo que cada projeto entregue maximize os recursos e apoie seu crescimento.",
-                image: "partner",
-                title: "Seu Sucesso é Nosso Compromisso",
-                imagePosition: "left",
-            }}
+            <ImageContent
+                data={{
+                    aboveTitle: "Parceria que Gera Valor",
+                    description: "Trabalhamos de forma transparente e próxima, garantindo que cada projeto entregue maximize os recursos e apoie seu crescimento.",
+                    image: "partner",
+                    title: "Seu Sucesso é Nosso Compromisso",
+                    imagePosition: "left",
+                }}
             />
         </section>
 
         <section id="depoimentos">
             <Testimonials
-            data={{
-                aboveTitle: "Clientes Reais, Resultados Reais",
-                title: "Veja Como Transformamos Negócios em Máquinas de Lucro",
-                authors: [
-                    {
-                        authorName: "Carlos Silva",
-                        authorRole: "CEO - TechSolutions",
-                        content:
-                            "A consultoria da Devnic reduziu nossos custos em 40% e trouxe total segurança para nossas operações.",
-                    },
-                    {
-                        authorName: "Maria Santos",
-                        authorRole: "Diretora Comercial - InnovaCorp",
-                        content:
-                            "Após o diagnóstico da Devnic reorganizamos todo nosso ambiente de TI e ganhamos produtividade imediata.",
-                    },
-                    {
-                        authorName: "Roberto Lima",
-                        authorRole: "Fundador - LogisFast",
-                        content:
-                            "Com o suporte contínuo da equipe Devnic conseguimos focar no negócio e crescemos 50% em 6 meses.",
-                    },
-                ],
-            }}
+                data={{
+                    aboveTitle: "Clientes Reais, Resultados Reais",
+                    title: "Veja Como Transformamos Negócios em Máquinas de Lucro",
+                    description: "Nossos clientes alcançaram resultados extraordinários com nossas soluções de TI. Veja o que eles têm a dizer sobre nossa parceria.",
+                    authors: [
+                        {
+                            name: "Carlos Silva",
+                            role: "CEO - TechSolutions",
+                            testimonial: "A consultoria da Devnic reduziu nossos custos em 40% e trouxe total segurança para nossas operações.",
+                            avatar: "about",
+                        },
+                        {
+                            name: "Maria Santos",
+                            role: "Diretora Comercial - InnovaCorp",
+                            testimonial: "Após o diagnóstico da Devnic reorganizamos todo nosso ambiente de TI e ganhamos produtividade imediata.",
+                            avatar: "partner",
+                        },
+                        {
+                            name: "Roberto Lima",
+                            role: "Fundador - LogisFast",
+                            testimonial: "Com o suporte contínuo da equipe Devnic conseguimos focar no negócio e crescemos 50% em 6 meses.",
+                            avatar: "heroImg",
+                        },
+                    ],
+                }}
             />
         </section>
 
         <section id="contato">
             <Newsletter
-            data={{
-                button: {
-                    label: "QUERO MEU DIAGNÓSTICO GRATUITO",
-                    link: "/",
-                },
-                title: "🎯 Descubra como a tecnologia certa pode acelerar seus resultados. Agende uma conversa gratuita e veja o potencial da sua empresa."
-            }}
+                data={{
+                    button: {
+                        label: "QUERO MEU DIAGNÓSTICO GRATUITO",
+                        link: "/",
+                    },
+                    title: "Descubra como a tecnologia certa pode acelerar seus resultados. Agende uma conversa gratuita e veja o potencial da sua empresa."
+                }}
             />
         </section>
     </main>

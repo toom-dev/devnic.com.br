@@ -23,11 +23,11 @@ export const ImageContent: FC<ImageContentProps> = ({
     }
 
     return (
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 relative overflow-hidden">
+        <section className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
             {/* Background decorative elements */}
-            <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-20 left-10 w-40 h-40 bg-blue-800 rounded-full filter blur-3xl"></div>
-                <div className="absolute bottom-20 right-10 w-48 h-48 bg-purple-800 rounded-full filter blur-3xl"></div>
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-20 left-10 w-40 h-40 bg-blue-200 rounded-full filter blur-3xl"></div>
+                <div className="absolute bottom-20 right-10 w-48 h-48 bg-purple-200 rounded-full filter blur-3xl"></div>
             </div>
 
             <Container>
@@ -46,30 +46,30 @@ export const ImageContent: FC<ImageContentProps> = ({
                         >
                             <div className="relative group">
                                 {/* Decorative background */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-purple-100/50 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-purple-100/30 to-pink-100/30 rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
                                 
                                 {/* Main image container */}
-                                <div className="relative bg-primary rounded-3xl p-4 shadow-2xl border border-secondary/20 group-hover:shadow-3xl transition-all duration-500">
+                                <div className="relative bg-white rounded-3xl p-4 shadow-2xl border border-gray-200 group-hover:shadow-3xl transition-all duration-500">
                                     <div className="rounded-2xl overflow-hidden">
                                         {image && (
                                             <Image
                                                 srcLocal={image}
                                                 alt={`${title} - Devnic Web Solutions`}
-                                                className="relative w-full h-full object-cover object-center rounded-2xl shadow-xl border-4 border-white/20"
+                                                className="relative w-full h-full object-cover object-center rounded-2xl shadow-xl border-4 border-gray-100"
                                             />
                                         )}
                                     </div>
                                 </div>
                                 
                                 {/* Floating elements */}
-                                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-yellow-600 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
                                 </div>
                                 
-                                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-br from-blue-700 to-purple-700 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                                     </svg>
@@ -87,8 +87,8 @@ export const ImageContent: FC<ImageContentProps> = ({
                         >
                             {/* Above title */}
                             {aboveTitle && (
-                                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-900/30">
-                                    <span className="text-tertiary font-medium text-sm uppercase tracking-wide">
+                                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200">
+                                    <span className="text-blue-700 font-medium text-sm uppercase tracking-wide">
                                         {aboveTitle}
                                     </span>
                                 </div>
@@ -96,8 +96,8 @@ export const ImageContent: FC<ImageContentProps> = ({
                             
                             {/* Title */}
                             {title && (
-                                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary leading-tight mb-8">
-                                    <span className="bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent">
+                                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight mb-8">
+                                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                                         {title}
                                     </span>
                                 </h2>
@@ -105,7 +105,7 @@ export const ImageContent: FC<ImageContentProps> = ({
                             
                             {/* Description */}
                             {description && (
-                                <p className="text-lg lg:text-xl text-secondary/80 leading-relaxed max-w-2xl">
+                                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
                                     {description}
                                 </p>
                             )}
@@ -118,7 +118,7 @@ export const ImageContent: FC<ImageContentProps> = ({
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
-                                    <span className="text-secondary font-medium">Soluções personalizadas para seu negócio</span>
+                                    <span className="text-gray-700 font-medium">Soluções personalizadas para seu negócio</span>
                                 </div>
                                 
                                 <div className="flex items-center gap-4">
@@ -127,7 +127,7 @@ export const ImageContent: FC<ImageContentProps> = ({
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
-                                    <span className="text-secondary font-medium">Implementação rápida e eficiente</span>
+                                    <span className="text-gray-700 font-medium">Implementação rápida e eficiente</span>
                                 </div>
                                 
                                 <div className="flex items-center gap-4">
@@ -136,7 +136,7 @@ export const ImageContent: FC<ImageContentProps> = ({
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
-                                    <span className="text-secondary font-medium">Suporte contínuo e treinamento</span>
+                                    <span className="text-gray-700 font-medium">Suporte contínuo e treinamento</span>
                                 </div>
                             </div>
                             
@@ -144,7 +144,7 @@ export const ImageContent: FC<ImageContentProps> = ({
                             <div className="pt-4">
                                 <a 
                                     href="#contato"
-                                    className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-700 to-purple-700 hover:from-blue-800 hover:to-purple-800 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 font-semibold group"
+                                    className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 font-semibold group"
                                 >
                                     <span>Começar Agora</span>
                                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

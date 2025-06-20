@@ -4,27 +4,46 @@ import { Logo } from "@components/Logo";
 import { Container } from "@components/Container";
 
 export const Footer: FC = () => {
-    // Smooth scroll function with header offset
+    // Enhanced smooth scroll function with better error handling
     const scrollToSection = (sectionId: string) => {
         const section = document.getElementById(sectionId);
         if (section) {
-            const headerHeight = 80; // Header height
-            const offsetTop = section.offsetTop - headerHeight;
+            // Get header height dynamically
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 80;
+            const offsetTop = section.offsetTop - headerHeight - 20; // Extra 20px padding
             
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            // Use both methods for better compatibility
+            try {
+                window.scrollTo({
+                    top: Math.max(0, offsetTop), // Ensure we don't scroll to negative position
+                    behavior: 'smooth'
+                });
+            } catch (error) {
+                // Fallback for older browsers
+                window.scrollTo(0, Math.max(0, offsetTop));
+            }
         }
     };
 
+    // Handle click events properly
+    const handleLinkClick = (sectionId: string) => (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+            scrollToSection(sectionId);
+        }, 100);
+    };
+
     return (
-        <footer className="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+        <footer className="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden">
             {/* Background Effects */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-10 left-10 w-40 h-40 bg-blue-400 rounded-full filter blur-3xl"></div>
-                <div className="absolute bottom-10 right-10 w-32 h-32 bg-purple-400 rounded-full filter blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-indigo-400 rounded-full filter blur-3xl"></div>
+            <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-10 left-10 w-40 h-40 bg-blue-200 rounded-full filter blur-3xl"></div>
+                <div className="absolute bottom-10 right-10 w-32 h-32 bg-purple-200 rounded-full filter blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-indigo-200 rounded-full filter blur-3xl"></div>
             </div>
 
             <div className="relative z-10">
@@ -37,48 +56,48 @@ export const Footer: FC = () => {
                                 <div className="mb-8">
                                     {/* Logo com fundo claro para melhor visibilidade */}
                                     <div className="relative">
-                                        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur-lg opacity-20 animate-pulse"></div>
-                                        <div className="relative inline-block bg-gradient-to-br from-white via-blue-50 to-gray-50 rounded-2xl p-6 border-2 border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                                        <div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl blur-lg opacity-30 animate-pulse"></div>
+                                        <div className="relative inline-block bg-gradient-to-br from-white via-blue-50 to-gray-50 rounded-2xl p-6 border-2 border-blue-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                                             <Logo />
                                         </div>
                                     </div>
                                 </div>
-                                <p className="text-blue-100 text-lg leading-relaxed mb-8 max-w-md">
+                                <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-md">
                                     Transformamos desafios em estratégias tecnológicas que <strong>impulsionam resultados</strong>.
                                     Agilidade, segurança e excelência em consultoria de TI.
                                 </p>
                                 
                                 {/* Stats */}
                                 <div className="grid grid-cols-2 gap-6 mb-8">
-                                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                        <div className="text-2xl font-bold text-white mb-1">50+</div>
-                                        <div className="text-blue-200 text-sm">Projetos Entregues</div>
+                                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg">
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">200+</div>
+                                        <div className="text-gray-600 text-sm">Projetos Entregues</div>
                                     </div>
-                                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                        <div className="text-2xl font-bold text-white mb-1">98%</div>
-                                        <div className="text-blue-200 text-sm">Satisfação do Cliente</div>
+                                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg">
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">99%</div>
+                                        <div className="text-gray-600 text-sm">Satisfação do Cliente</div>
                                     </div>
                                 </div>
 
                                 {/* Social Media */}
                                 <div>
-                                    <h4 className="text-white font-semibold mb-4">Siga-nos</h4>
+                                    <h4 className="text-gray-900 font-semibold mb-4">Siga-nos</h4>
                                     <div className="flex space-x-4">
                                         <a 
                                             href="#" 
-                                            className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                                            className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
                                             aria-label="LinkedIn"
                                         >
-                                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                             </svg>
                                         </a>
                                         <a 
                                             href="#" 
-                                            className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                                            className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
                                             aria-label="Instagram"
                                         >
-                                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm0 21.986c-5.523 0-9.999-4.477-9.999-10.000S6.494 1.987 12.017 1.987s9.998 4.477 9.998 9.999-4.475 10.000-9.998 10.000z"/>
                                                 <path d="M15.803 6.331c-.716 0-1.297.581-1.297 1.297s.581 1.297 1.297 1.297 1.297-.581 1.297-1.297-.581-1.297-1.297-1.297z"/>
                                                 <path d="M12.017 7.364c-2.548 0-4.623 2.075-4.623 4.623s2.075 4.623 4.623 4.623 4.623-2.075 4.623-4.623-2.075-4.623-4.623-4.623zm0 7.623c-1.651 0-3-1.349-3-3s1.349-3 3-3 3 1.349 3 3-1.349 3-3 3z"/>
@@ -100,50 +119,55 @@ export const Footer: FC = () => {
 
                             {/* Quick Links */}
                             <div>
-                                <h4 className="text-white font-semibold mb-6">Links Rápidos</h4>
+                                <h4 className="text-gray-900 font-semibold mb-6">Links Rápidos</h4>
                                 <ul className="space-y-3">
                                     <li>
                                         <button
-                                            onClick={() => scrollToSection('home')}
-                                            className="text-blue-200 hover:text-white transition-colors duration-200 flex items-center group"
+                                            type="button"
+                                            onClick={handleLinkClick('home')}
+                                            className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
-                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-200"></span>
+                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Início
                                         </button>
                                     </li>
                                     <li>
                                         <button
-                                            onClick={() => scrollToSection('servicos')}
-                                            className="text-blue-200 hover:text-white transition-colors duration-200 flex items-center group"
+                                            type="button"
+                                            onClick={handleLinkClick('servicos')}
+                                            className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
-                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-200"></span>
+                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Serviços
                                         </button>
                                     </li>
                                     <li>
                                         <button
-                                            onClick={() => scrollToSection('sobre')}
-                                            className="text-blue-200 hover:text-white transition-colors duration-200 flex items-center group"
+                                            type="button"
+                                            onClick={handleLinkClick('sobre')}
+                                            className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
-                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-200"></span>
+                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Sobre Nós
                                         </button>
                                     </li>
                                     <li>
                                         <button
-                                            onClick={() => scrollToSection('depoimentos')}
-                                            className="text-blue-200 hover:text-white transition-colors duration-200 flex items-center group"
+                                            type="button"
+                                            onClick={handleLinkClick('depoimentos')}
+                                            className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
-                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-200"></span>
+                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Depoimentos
                                         </button>
                                     </li>
                                     <li>
                                         <button
-                                            onClick={() => scrollToSection('contato')}
-                                            className="text-blue-200 hover:text-white transition-colors duration-200 flex items-center group"
+                                            type="button"
+                                            onClick={handleLinkClick('contato')}
+                                            className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
-                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-200"></span>
+                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Contato
                                         </button>
                                     </li>
@@ -152,23 +176,23 @@ export const Footer: FC = () => {
 
                             {/* Contact & Legal */}
                             <div>
-                                <h4 className="text-white font-semibold mb-6">Contato & Legal</h4>
+                                <h4 className="text-gray-900 font-semibold mb-6">Contato & Legal</h4>
                                 
                                 {/* Contact Info */}
                                 <div className="space-y-4 mb-8">
-                                    <div className="flex items-center text-blue-200">
-                                        <svg className="w-5 h-5 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="flex items-center text-gray-600">
+                                        <svg className="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                                         </svg>
-                                        <a href="tel:+551198926-6354" className="hover:text-white transition-colors duration-200">
+                                        <a href="tel:+5511989266354" className="hover:text-gray-900 transition-colors duration-200">
                                             (11) 98926-6354
                                         </a>
                                     </div>
-                                    <div className="flex items-center text-blue-200">
-                                        <svg className="w-5 h-5 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="flex items-center text-gray-600">
+                                        <svg className="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                         </svg>
-                                        <a href="mailto:suporte.devnic@gmail.com" className="hover:text-white transition-colors duration-200">
+                                        <a href="mailto:suporte.devnic@gmail.com" className="hover:text-gray-900 transition-colors duration-200">
                                             suporte.devnic@gmail.com
                                         </a>
                                     </div>
@@ -176,12 +200,12 @@ export const Footer: FC = () => {
 
                                 {/* Legal Links */}
                                 <div>
-                                    <h5 className="text-white font-medium mb-4">Informações Legais</h5>
+                                    <h5 className="text-gray-900 font-medium mb-4">Informações Legais</h5>
                                     <ul className="space-y-3">
                                         <li>
                                             <a
                                                 href="/politica-de-privacidade"
-                                                className="text-blue-200 hover:text-white transition-colors duration-200 text-sm"
+                                                className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm"
                                             >
                                                 Política de Privacidade
                                             </a>
@@ -189,7 +213,7 @@ export const Footer: FC = () => {
                                         <li>
                                             <a
                                                 href="/termos-de-uso"
-                                                className="text-blue-200 hover:text-white transition-colors duration-200 text-sm"
+                                                className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm"
                                             >
                                                 Termos de Uso
                                             </a>
@@ -202,16 +226,16 @@ export const Footer: FC = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-white/10 py-8">
+                <div className="border-t border-gray-200 py-8">
                     <Container>
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-                            <div className="text-blue-200 text-sm">
+                            <div className="text-gray-600 text-sm">
                                 &copy; {new Date().getFullYear()} Devnic Web Solutions. Todos os direitos reservados.
                             </div>
-                            <div className="flex items-center space-x-6 text-sm text-blue-200">
+                            <div className="flex items-center space-x-6 text-sm text-gray-600">
                                 <span>CNPJ: 57.539.291/0001-08</span>
                                 <span>•</span>
-                                <span>Feito com 💙 no Brasil</span>
+                                <span>Feito com ❤️ no Brasil</span>
                             </div>
                         </div>
                     </Container>
