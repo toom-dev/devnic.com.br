@@ -38,6 +38,26 @@ export const POST: APIRoute = async ({ request }) => {
             });
         }
 
+        // Verificar se o Supabase está configurado
+        const supabaseUrl = process.env.SUPABASE_URL;
+        const supabaseKey = process.env.SUPABASE_ANON_KEY;
+        
+        if (!supabaseUrl || supabaseUrl === "https://placeholder.supabase.co" || 
+            !supabaseKey || supabaseKey === "placeholder-key") {
+            console.log("Supabase não configurado. Dados recebidos:", { 
+                email, nome, telefone, servico, problema: problema || message 
+            });
+            
+            return new Response(JSON.stringify({ 
+                success: true, 
+                message: "Formulário enviado com sucesso! Entraremos em contato em breve.",
+                note: "Dados salvos em log (Supabase não configurado)"
+            }), {
+                status: 200,
+                headers: { "Content-Type": "application/json" }
+            });
+        }
+
         // Salvar no Supabase
         const { data, error: supabaseError } = await supabase.from("leads").insert([{
             email,

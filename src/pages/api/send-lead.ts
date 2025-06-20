@@ -26,6 +26,30 @@ export const POST: APIRoute = async ({ params, redirect, request }) => {
             servico = form.get("servico");
         }
 
+        // Verificar se o Supabase está configurado
+        const supabaseUrl = process.env.SUPABASE_URL;
+        const supabaseKey = process.env.SUPABASE_ANON_KEY;
+        
+        if (!supabaseUrl || supabaseUrl === "https://placeholder.supabase.co" || 
+            !supabaseKey || supabaseKey === "placeholder-key") {
+            console.log("Supabase não configurado. Dados do lead:", { 
+                email, nome: name, telefone: phone, servico, problema 
+            });
+            
+            if (contentType === "application/json") {
+                return new Response(JSON.stringify({ 
+                    success: true,
+                    message: "Lead salvo com sucesso! (log)",
+                    note: "Supabase não configurado"
+                }), {
+                    status: 200,
+                    headers: { "Content-Type": "application/json" }
+                });
+            }
+            
+            return redirect("/contato-enviado");
+        }
+
         const { data, error } = await supabase.from("leads").insert([{
             email,
             nome: name,
