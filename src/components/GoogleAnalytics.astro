@@ -1,11 +1,125 @@
 ---
 const { id } = Astro.props;
 ---
+
+<!-- Google tag (gtag.js) -->
 <script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`}></script>
-<script is:inline>
+<script is:inline define:vars={{ id }}>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', id);
+  
+  // Configuração principal do Google Analytics
+  gtag('config', id, {
+    // Configurações de privacidade
+    anonymize_ip: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+    
+    // Configurações de performance
+    transport_type: 'beacon',
+    custom_map: {
+      'custom_parameter': 'dimension1'
+    }
+  });
+
+  // Eventos personalizados para rastreamento de conversões
+  window.gtag = gtag;
+  
+  // Rastreamento de cliques em botões CTA
+  document.addEventListener('DOMContentLoaded', () => {
+    // Rastrear cliques em botões de contato
+    document.querySelectorAll('button[data-track="contact"]').forEach(button => {
+      button.addEventListener('click', () => {
+        gtag('event', 'click', {
+          event_category: 'engagement',
+          event_label: 'contact_button',
+          value: 1
+        });
+      });
+    });
+
+    // Rastrear cliques em links do WhatsApp
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.addEventListener('click', () => {
+        gtag('event', 'contact', {
+          event_category: 'lead_generation',
+          event_label: 'whatsapp_click',
+          value: 1
+        });
+      });
+    });
+
+    // Rastrear envios de formulário
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', () => {
+        gtag('event', 'generate_lead', {
+          event_category: 'lead_generation',
+          event_label: 'form_submission',
+          value: 1
+        });
+      });
+    });
+
+    // Rastrear scroll depth
+    let maxScroll = 0;
+    const trackScrollDepth = () => {
+      const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+      
+      if (scrollPercent > maxScroll) {
+        maxScroll = scrollPercent;
+        
+        // Enviar eventos em marcos de 25%
+        if (scrollPercent >= 25 && scrollPercent < 50 && maxScroll < 50) {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: 'scroll_depth_25',
+            value: 25
+          });
+        } else if (scrollPercent >= 50 && scrollPercent < 75 && maxScroll < 75) {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: 'scroll_depth_50',
+            value: 50
+          });
+        } else if (scrollPercent >= 75 && scrollPercent < 100 && maxScroll < 100) {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: 'scroll_depth_75',
+            value: 75
+          });
+        } else if (scrollPercent >= 100) {
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: 'scroll_depth_100',
+            value: 100
+          });
+        }
+      }
+    };
+
+    // Throttle scroll events
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          trackScrollDepth();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Rastrear tempo na página
+    let startTime = Date.now();
+    window.addEventListener('beforeunload', () => {
+      const timeSpent = Math.round((Date.now() - startTime) / 1000);
+      gtag('event', 'page_timing', {
+        event_category: 'engagement',
+        event_label: 'time_on_page',
+        value: timeSpent
+      });
+    });
+  });
 </script>
 

@@ -169,6 +169,7 @@ export const Header: FC = () => {
                             </a>
                             <button
                                 onClick={() => navigateToSection('contato')}
+                                data-track="contact"
                                 className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                             >
                                 Consulta Gratuita
@@ -260,6 +261,7 @@ export const Header: FC = () => {
                                 </a>
                                 <button
                                     onClick={() => navigateToSection('contato')}
+                                    data-track="contact"
                                     className="block w-full mt-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg"
                                 >
                                     Consulta Gratuita

@@ -3,7 +3,7 @@ import path, { dirname, join, relative, basename } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import * as fs from 'node:fs/promises';
 import { getTransformedRoutes, normalizeRoutes } from '@vercel/routing-utils';
-import { f as AstroUserError } from './astro/server_9-iyivep.mjs';
+import { f as AstroUserError } from './astro/server_ClLhG9vG.mjs';
 import { globSync } from 'tinyglobby';
 import { a as appendForwardSlash, i as isRemotePath, r as removeLeadingForwardSlash } from './index_TUWIZ4ui.mjs';
 import 'deterministic-object-hash';

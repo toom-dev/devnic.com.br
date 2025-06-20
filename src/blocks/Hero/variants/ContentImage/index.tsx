@@ -137,6 +137,7 @@ export const ContentImage: FC<ContentImageProps> = ({
                                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                                         <button
                                             onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+                                            data-track="contact"
                                             className="group relative bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 min-w-max"
                                         >
                                             <span className="relative z-10 flex items-center gap-2">

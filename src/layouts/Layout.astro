@@ -8,6 +8,7 @@ import { PageWrapper } from "@components/PageWrapper";
 import MetaConfig from "./MetaConfig.astro";
 
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 import "@styles/tailwind/tailwind.output.css";
@@ -159,7 +160,10 @@ const structuredData = {
         </PageWrapper>
         
         <Footer />
+        
+        <!-- Vercel Analytics & Speed Insights -->
         <Analytics />
+        <SpeedInsights />
 
         <script>
             // Enhanced animation system with intersection observer

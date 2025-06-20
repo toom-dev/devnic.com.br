@@ -312,13 +312,14 @@ export const Newsletter: FC<NewsletterProps> = ({
                                         </div>
                                     )}
                                     
-                                    <button
-                                        type="submit"
-                                        disabled={isLoading}
-                                        className={`w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold py-6 px-8 rounded-xl shadow-2xl transform transition-all duration-300 text-xl ${
-                                            isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 hover:-translate-y-1 hover:shadow-3xl'
-                                        }`}
-                                    >
+                                                        <button
+                        type="submit"
+                        disabled={isLoading}
+                        data-track="contact"
+                        className={`w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold py-6 px-8 rounded-xl shadow-2xl transform transition-all duration-300 text-xl ${
+                            isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 hover:-translate-y-1 hover:shadow-3xl'
+                        }`}
+                    >
                                         {isLoading ? (
                                             <div className="flex items-center justify-center gap-3">
                                                 <svg className="animate-spin h-6 w-6" viewBox="0 0 24 24">
