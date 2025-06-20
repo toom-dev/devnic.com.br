@@ -14,49 +14,118 @@ import { Stats } from "@blocks/Stats";
     description="Alcance novos níveis com consultoria em TI! A Devnic otimiza infraestrutura, segurança e processos para empresas de todos os portes. Mais de 200 projetos entregues com sucesso. Diagnóstico gratuito em São Paulo. Resultados garantidos!"
 >
     <main class="page-content">
-        <section id="home" class="pt-16">
-            <Hero
-                heroType="contentImage"
-                data={{
-                    label: "Resultados Garantidos em 90 dias",
-                    logo: "logo",
-                    title: "Potencialize Seu Negócio com Consultoria em TI de Alto Nível",
-                    description: "Chega de improvisar em tecnologia! Nossa consultoria identifica oportunidades, otimiza processos e reduz custos. Mais de 200 projetos bem-sucedidos.",
-                    image: "heroImg",
-                    button: {
-                        text: "Quero um Diagnóstico GRATUITO",
-                        link: "#contato",
-                        variant: "primary",
-                    },
-                }}
-            />
+        <section id="home" class="bg-white py-20 px-4">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-medium mb-8">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    Resultados Garantidos em 90 dias
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Potencialize seu negócio com<br/>
+                    <span class="text-blue-600">consultoria em TI de alto nível</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+                    Nossa consultoria identifica oportunidades, otimiza processos e reduz custos. 
+                    Mais de 200 projetos bem-sucedidos com resultados mensuráveis.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                    <button onclick="window.openContactForm && window.openContactForm('Diagnóstico Geral')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+                        Diagnóstico Gratuito
+                    </button>
+                    <a href="#servicos" class="border border-gray-300 hover:border-gray-400 text-gray-700 px-8 py-4 rounded-lg font-semibold transition-colors">
+                        Nossos Serviços
+                    </a>
+                </div>
+                
+
+            </div>
         </section>
 
-        <Stats
-            data={{
-                title: "Resultados que Falam por Si",
-                stats: [
-                    {
-                        number: "200+",
-                        label: "Projetos de TI otimizados",
-                    },
-                    {
-                        number: "99%",
-                        label: "Clientes satisfeitos",
-                    },
-                    {
-                        number: "40%",
-                        label: "Redução média de custos",
-                    },
-                    {
-                        number: "24/7",
-                        label: "Suporte especializado",
-                    }
-                ]
-            }}
-        />
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Sua plataforma completa para <span class="text-blue-600">Consultoria em TI</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Metodologia comprovada que já otimizou mais de 200 projetos. 
+                        Resultados mensuráveis e suporte especializado para sua empresa crescer.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">200+</div>
+                        <div class="text-gray-600 text-sm">Projetos de TI otimizados</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-3xl font-bold text-green-600 mb-2">99%</div>
+                        <div class="text-gray-600 text-sm">Clientes satisfeitos</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">40%</div>
+                        <div class="text-gray-600 text-sm">Redução média de custos</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-3xl font-bold text-orange-600 mb-2">24/7</div>
+                        <div class="text-gray-600 text-sm">Suporte especializado</div>
+                    </div>
+                </div>
+                
+                <!-- Feature highlights -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Análise Completa</h3>
+                        <p class="text-gray-600 text-sm">Diagnóstico profundo da sua infraestrutura atual e identificação de oportunidades.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Implementação Estratégica</h3>
+                        <p class="text-gray-600 text-sm">Roadmap personalizado com execução acompanhada para garantir resultados.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Suporte Contínuo</h3>
+                        <p class="text-gray-600 text-sm">Acompanhamento 24/7 e otimizações constantes para máxima eficiência.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="servicos">
+        <section id="servicos" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4 mb-16">
+                <div class="text-center">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                        Soluções de Consultoria
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Tecnologia estratégica para <span class="text-blue-600">crescer com segurança</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Oferecemos consultoria completa para planejar, implementar e evoluir sua infraestrutura de TI. 
+                        Trabalhamos lado a lado para que você foque no negócio.
+                    </p>
+                </div>
+            </div>
             <Service
                 data={{
                     aboveTitle: "Soluções de Consultoria",
@@ -67,96 +136,202 @@ import { Stats } from "@blocks/Stats";
                             title: "Transformação Digital",
                             description: "Planejamento estratégico e roadmap tecnológico para tornar seu negócio mais eficiente e competitivo.",
                             icon: "cloud",
+                            link: "/transformacao-digital",
                         },
                         {
                             title: "Infraestrutura & Cloud",
                             description: "Gerenciamento de servidores, migração para nuvem e monitoramento para máxima disponibilidade.",
                             icon: "fingerprint",
+                            link: "/infraestrutura-cloud",
                         },
                         {
                             title: "Segurança da Informação",
                             description: "Proteção de dados, análise de vulnerabilidades e políticas de segurança personalizadas.",
                             icon: "lock",
+                            link: "/seguranca-informacao",
                         },
                         {
                             title: "Otimização de Processos",
                             description: "Automação e integração de sistemas para reduzir custos e aumentar a produtividade.",
                             icon: "repeat",
+                            link: "/otimizacao-processos",
                         },
                     ],
                 }}
             />
         </section>
 
-        <Logos
-            data={{
-                title: "Empresas Que Já Transformaram Seus Resultados",
-                logos: ["logo1", "logo2"],
-            }}
-        />
 
-        <section id="sobre">
-            <ImageContent
-                data={{
-                    aboveTitle: "Por Que Escolher a Devnic?",
-                    description: "Somos especialistas em consultoria de TI. Nossos projetos combinam visão estratégica e know-how técnico para entregar soluções que geram retorno real.",
-                    image: "about",
-                    title: "Expertise em Tecnologia para Impulsionar Resultados",
-                    imagePosition: "right",
-                }}
-            />
 
-            <ImageContent
-                data={{
-                    aboveTitle: "Parceria que Gera Valor",
-                    description: "Trabalhamos de forma transparente e próxima, garantindo que cada projeto entregue maximize os recursos e apoie seu crescimento.",
-                    image: "partner",
-                    title: "Seu Sucesso é Nosso Compromisso",
-                    imagePosition: "left",
-                }}
-            />
+        <section id="sobre" class="py-20 bg-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full text-green-600 text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                        Por Que Escolher a Devnic?
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Expertise em tecnologia para <span class="text-green-600">impulsionar resultados</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Somos especialistas em consultoria de TI. Nossos projetos combinam visão estratégica 
+                        e know-how técnico para entregar soluções que geram retorno real.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Parceria que gera valor</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Transparência Total</h4>
+                                    <p class="text-gray-600">Relatórios detalhados e comunicação clara em todas as etapas.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">ROI Garantido</h4>
+                                    <p class="text-gray-600">Cada projeto é estruturado para maximizar o retorno do investimento.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Suporte Dedicado</h4>
+                                    <p class="text-gray-600">Equipe especializada sempre disponível para apoiar seu crescimento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-xl p-8 text-center">
+                        <div class="w-full h-64 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-400">
+                            Imagem Ilustrativa
+                        </div>
+                        <p class="text-gray-600 text-sm">Nossa metodologia comprovada em ação</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="depoimentos">
-            <Testimonials
-                data={{
-                    aboveTitle: "Clientes Reais, Resultados Reais",
-                    title: "Veja Como Transformamos Negócios em Máquinas de Lucro",
-                    description: "Nossos clientes alcançaram resultados extraordinários com nossas soluções de TI. Veja o que eles têm a dizer sobre nossa parceria.",
-                    authors: [
-                        {
-                            name: "Carlos Silva",
-                            role: "CEO - TechSolutions",
-                            testimonial: "A consultoria da Devnic reduziu nossos custos em 40% e trouxe total segurança para nossas operações.",
-                            avatar: "about",
-                        },
-                        {
-                            name: "Maria Santos",
-                            role: "Diretora Comercial - InnovaCorp",
-                            testimonial: "Após o diagnóstico da Devnic reorganizamos todo nosso ambiente de TI e ganhamos produtividade imediata.",
-                            avatar: "partner",
-                        },
-                        {
-                            name: "Roberto Lima",
-                            role: "Fundador - LogisFast",
-                            testimonial: "Com o suporte contínuo da equipe Devnic conseguimos focar no negócio e crescemos 50% em 6 meses.",
-                            avatar: "heroImg",
-                        },
-                    ],
-                }}
-            />
+        <section id="depoimentos" class="py-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Consultoria que <span class="text-blue-600">você vai adorar usar</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Nossos clientes alcançaram resultados extraordinários com nossas soluções de TI. 
+                        Veja o que eles têm a dizer sobre nossa parceria.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-gray-900">Carlos Silva</div>
+                                <div class="text-sm text-gray-600">CEO - TechSolutions</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "A consultoria da Devnic reduziu nossos custos em 40% e trouxe total segurança para nossas operações."
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl border border-gray-200">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-gray-900">Maria Santos</div>
+                                <div class="text-sm text-gray-600">Diretora Comercial - InnovaCorp</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Após o diagnóstico da Devnic reorganizamos todo nosso ambiente de TI e ganhamos produtividade imediata."
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl border border-gray-200">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                            <div>
+                                <div class="font-semibold text-gray-900">Roberto Lima</div>
+                                <div class="text-sm text-gray-600">Fundador - LogisFast</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Com o suporte contínuo da equipe Devnic conseguimos focar no negócio e crescemos 50% em 6 meses."
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="contato">
-            <Newsletter
-                data={{
-                    button: {
-                        label: "QUERO MEU DIAGNÓSTICO GRATUITO",
-                        link: "/",
-                    },
-                    title: "Descubra como a tecnologia certa pode acelerar seus resultados. Agende uma conversa gratuita e veja o potencial da sua empresa."
-                }}
-            />
+        <section id="contato" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Potencialize sua empresa com <span class="text-blue-600">nossa consultoria</span>
+                </h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Descubra como a tecnologia certa pode acelerar seus resultados. 
+                    Diagnóstico gratuito e sem compromisso.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <button onclick="window.openContactForm && window.openContactForm('Diagnóstico Geral')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">
+                        Agendar Diagnóstico Gratuito
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </button>
+                    <a href="tel:+5511989266354" class="border border-gray-300 hover:border-gray-400 text-gray-700 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        Ligar Agora
+                    </a>
+                </div>
+                
+                <div class="text-sm text-gray-500">
+                    <span class="inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Sem compromisso
+                    </span>
+                    <span class="mx-4">•</span>
+                    <span class="inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Resultados garantidos
+                    </span>
+                    <span class="mx-4">•</span>
+                    <span class="inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Suporte especializado
+                    </span>
+                </div>
+            </div>
         </section>
     </main>
 </Layout>

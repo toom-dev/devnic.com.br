@@ -11,6 +11,7 @@ export type ServiceProps = {
             icon: string;
             title: string;
             description: string;
+            link?: string;
         }[];
     };
 };
@@ -104,6 +105,17 @@ export const Service: FC<ServiceProps> = ({
                                     
                                     {/* Learn More Link */}
                                     <div className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                        {service.link ? (
+                                            <a
+                                                href={service.link}
+                                                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
+                                            >
+                                                Saiba mais
+                                                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                </svg>
+                                            </a>
+                                        ) : (
                                         <button
                                             onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
                                             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
@@ -113,6 +125,7 @@ export const Service: FC<ServiceProps> = ({
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                             </svg>
                                         </button>
+                                        )}
                                     </div>
                                 </div>
                                 

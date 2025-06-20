@@ -8,12 +8,20 @@ export const Header: FC = () => {
     const headerRef = useRef<HTMLHeadElement>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
 
-    // Smooth scroll function with header offset
-    const scrollToSection = (sectionId: string) => {
+    // Navigation function that works for all routes
+    const navigateToSection = (sectionId: string) => {
+        // Close menus
+        setIsMenuOpen(false);
+        setIsServicesOpen(false);
+        
+        // Check if we're on the home page
+        if (window.location.pathname === '/') {
+            // We're on home page, scroll to section
         const section = document.getElementById(sectionId);
         if (section) {
-            const headerHeight = 80; // Header height
+                const headerHeight = 80;
             const offsetTop = section.offsetTop - headerHeight;
             
             window.scrollTo({
@@ -21,7 +29,17 @@ export const Header: FC = () => {
                 behavior: 'smooth'
             });
         }
+        } else {
+            // We're on another page, navigate to home with hash
+            window.location.href = `/#${sectionId}`;
+        }
+    };
+
+    // Navigate to service pages
+    const navigateToService = (servicePath: string) => {
         setIsMenuOpen(false);
+        setIsServicesOpen(false);
+        window.location.href = servicePath;
     };
 
     /**
@@ -43,11 +61,27 @@ export const Header: FC = () => {
         };
     }, []);
 
+    /**
+     * Close dropdowns when clicking outside
+     */
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+                setIsServicesOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <S.HeaderStyled
-            className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ease-in-out bg-primary/90 backdrop-blur-xl ${
+            className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ease-in-out bg-white/90 backdrop-blur-xl ${
                 isScrolled
-                    ? 'border-b border-secondary/20 shadow-lg'
+                    ? 'border-b border-gray-200 shadow-lg'
                     : ''
             }`}
             ref={headerRef}
@@ -63,26 +97,63 @@ export const Header: FC = () => {
                     <div className="hidden lg:flex items-center space-x-8">
                         <nav className="flex items-center space-x-6">
                             <button
-                                onClick={() => scrollToSection('home')}
-                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
+                                onClick={() => navigateToSection('home')}
+                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
                             >
                                 Início
                             </button>
+                            
+                            {/* Services Dropdown */}
+                            <div className="relative">
                             <button
-                                onClick={() => scrollToSection('servicos')}
-                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
+                                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                                    className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700 flex items-center gap-1"
                             >
                                 Serviços
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                
+                                {isServicesOpen && (
+                                    <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                                        <button
+                                            onClick={() => navigateToService('/transformacao-digital')}
+                                            className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                                        >
+                                            Transformação Digital
+                                        </button>
+                                        <button
+                                            onClick={() => navigateToService('/infraestrutura-cloud')}
+                                            className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                                        >
+                                            Infraestrutura & Cloud
+                                        </button>
+                                        <button
+                                            onClick={() => navigateToService('/seguranca-informacao')}
+                                            className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                                        >
+                                            Segurança da Informação
+                                        </button>
+                                        <button
+                                            onClick={() => navigateToService('/otimizacao-processos')}
+                                            className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                                        >
+                                            Otimização de Processos
                             </button>
+                                    </div>
+                                )}
+                            </div>
+                            
                             <button
-                                onClick={() => scrollToSection('sobre')}
-                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
+                                onClick={() => navigateToSection('sobre')}
+                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
                             >
                                 Sobre
                             </button>
                             <button
-                                onClick={() => scrollToSection('depoimentos')}
-                                className="font-medium transition-colors duration-200 hover:text-tertiary cursor-pointer text-secondary"
+                                onClick={() => navigateToSection('depoimentos')}
+                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
                             >
                                 Depoimentos
                             </button>
@@ -92,12 +163,12 @@ export const Header: FC = () => {
                         <div className="flex items-center space-x-4">
                             <a
                                 href="tel:+551198926-6354"
-                                className="text-sm font-medium transition-colors duration-200 hover:text-tertiary text-secondary/70"
+                                className="text-sm font-medium transition-colors duration-200 hover:text-blue-600 text-gray-600"
                             >
                                 📞 (11) 98926-6354
                             </a>
                             <button
-                                onClick={() => scrollToSection('contato')}
+                                onClick={() => navigateToSection('contato')}
                                 className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                             >
                                 Consulta Gratuita
@@ -109,7 +180,7 @@ export const Header: FC = () => {
                     <div className="lg:hidden">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 rounded-lg transition-colors duration-200 text-secondary hover:bg-secondary/10"
+                            className="p-2 rounded-lg transition-colors duration-200 text-gray-700 hover:bg-gray-100"
                         >
                             <svg 
                                 className="w-6 h-6" 
@@ -129,29 +200,53 @@ export const Header: FC = () => {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="lg:hidden absolute top-full left-0 w-full bg-primary/95 backdrop-blur-xl border-b border-secondary/20 shadow-xl">
+                    <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-xl">
                         <div className="px-4 py-6 space-y-4">
                             <button 
-                                onClick={() => scrollToSection('home')}
-                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
+                                onClick={() => navigateToSection('home')}
+                                className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
                             >
                                 Início
                             </button>
-                            <button 
-                                onClick={() => scrollToSection('servicos')}
-                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
-                            >
-                                Serviços
+                            
+                            {/* Mobile Services Section */}
+                            <div className="space-y-2">
+                                <div className="text-gray-500 text-sm font-medium px-4">Serviços</div>
+                                <button 
+                                    onClick={() => navigateToService('/transformacao-digital')}
+                                    className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                                >
+                                    Transformação Digital
+                                </button>
+                                <button 
+                                    onClick={() => navigateToService('/infraestrutura-cloud')}
+                                    className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                                >
+                                    Infraestrutura & Cloud
+                                </button>
+                                <button 
+                                    onClick={() => navigateToService('/seguranca-informacao')}
+                                    className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                                >
+                                    Segurança da Informação
                             </button>
                             <button 
-                                onClick={() => scrollToSection('sobre')}
-                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
+                                    onClick={() => navigateToService('/otimizacao-processos')}
+                                    className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                            >
+                                    Otimização de Processos
+                            </button>
+                            </div>
+                            
+                            <button 
+                                onClick={() => navigateToSection('sobre')}
+                                className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
                             >
                                 Sobre
                             </button>
                             <button 
-                                onClick={() => scrollToSection('depoimentos')}
-                                className="block w-full text-left text-secondary font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 hover:text-tertiary transition-colors duration-200"
+                                onClick={() => navigateToSection('depoimentos')}
+                                className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
                             >
                                 Depoimentos
                             </button>
@@ -159,12 +254,12 @@ export const Header: FC = () => {
                             <div className="pt-4 border-t border-gray-200">
                                 <a 
                                     href="tel:+551198926-6354" 
-                                    className="block text-secondary/70 text-sm font-medium py-2 px-4 rounded-lg hover:bg-secondary/10 transition-colors duration-200"
+                                    className="block text-gray-600 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors duration-200"
                                 >
                                     📞 (11) 98926-6354
                                 </a>
                                 <button
-                                    onClick={() => scrollToSection('contato')}
+                                    onClick={() => navigateToSection('contato')}
                                     className="block w-full mt-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg"
                                 >
                                     Consulta Gratuita
