@@ -4,6 +4,7 @@ import HeroImg from "./hero-img.webp";
 import about from "./about.webp";
 import partner from "./partner.webp";
 import Logo from "./logo.webp";
+import automacao from "./automacoes/automacao.jpg";
 
 import Logo1 from "./logos/logo1.webp";
 import Logo2 from "./logos/logo2.webp";
@@ -16,6 +17,7 @@ export const images = {
     logo2: Logo2,
     about: about,
     partner: partner,
+    automacao: automacao,
 };
 
 export type ImageProps = React.ImgHTMLAttributes<HTMLElement> & {

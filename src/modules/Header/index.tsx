@@ -123,11 +123,11 @@ export const Header: FC = () => {
                                         >
                                             Transformação Digital
                                         </button>
-                                        <button
-                                            onClick={() => navigateToService('/infraestrutura-cloud')}
+                                                                                <button 
+                                            onClick={() => navigateToService('/automacoes')}
                                             className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                                         >
-                                            Infraestrutura & Cloud
+                                            Automação de Processos
                                         </button>
                                         <button
                                             onClick={() => navigateToService('/seguranca-informacao')}
@@ -219,12 +219,12 @@ export const Header: FC = () => {
                                 >
                                     Transformação Digital
                                 </button>
-                                <button 
-                                    onClick={() => navigateToService('/infraestrutura-cloud')}
-                                    className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
-                                >
-                                    Infraestrutura & Cloud
-                                </button>
+                                                                            <button 
+                                                onClick={() => navigateToService('/automacoes')}
+                                                className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                                            >
+                                                Automação de Processos
+                                            </button>
                                 <button 
                                     onClick={() => navigateToService('/seguranca-informacao')}
                                     className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
