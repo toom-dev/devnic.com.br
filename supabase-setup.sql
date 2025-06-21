@@ -37,20 +37,32 @@ CREATE TRIGGER update_leads_updated_at
 -- Habilitar RLS (Row Level Security) se necessário
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
 
--- Política para permitir inserção de novos leads (acesso público para formulários)
-CREATE POLICY IF NOT EXISTS "Allow public insert" ON leads
-    FOR INSERT
-    WITH CHECK (true);
+-- Remover políticas antigas se existirem
+DROP POLICY IF EXISTS "Allow public insert" ON leads;
+DROP POLICY IF EXISTS "Allow authenticated read" ON leads;
+DROP POLICY IF EXISTS "Allow authenticated update" ON leads;
 
--- Política para leitura apenas para usuários autenticados (admin)
-CREATE POLICY IF NOT EXISTS "Allow authenticated read" ON leads
+-- Política para permitir inserção pública (formulários do site)
+-- Permite inserção para usuários anônimos (chave anon_key)
+CREATE POLICY "Enable insert for anon users" ON leads
+    FOR INSERT
+    WITH CHECK (auth.role() = 'anon');
+
+-- Política para leitura apenas para usuários autenticados (admin/dashboard)
+CREATE POLICY "Enable read for authenticated users" ON leads
     FOR SELECT
     USING (auth.role() = 'authenticated');
 
 -- Política para atualização apenas para usuários autenticados (admin)
-CREATE POLICY IF NOT EXISTS "Allow authenticated update" ON leads
+CREATE POLICY "Enable update for authenticated users" ON leads
     FOR UPDATE
-    USING (auth.role() = 'authenticated');
+    USING (auth.role() = 'authenticated')
+    WITH CHECK (auth.role() = 'authenticated');
+
+-- Política para permitir inserção também para usuários autenticados
+CREATE POLICY "Enable insert for authenticated users" ON leads
+    FOR INSERT
+    WITH CHECK (auth.role() = 'authenticated');
 
 -- Comentários para documentação
 COMMENT ON TABLE leads IS 'Tabela para armazenar leads gerados pelos formulários de contato do site';

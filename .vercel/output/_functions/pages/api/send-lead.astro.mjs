@@ -1,4 +1,4 @@
-import { s as supabase } from '../../chunks/supabase_rGjxOtc7.mjs';
+import { i as isSupabaseConfigured, a as insertLead } from '../../chunks/supabase_DBTIJ_q7.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const POST = async ({ params, redirect, request }) => {
@@ -8,70 +8,119 @@ const POST = async ({ params, redirect, request }) => {
     if (contentType === "application/json") {
       const body = await request.json();
       email = body.email;
-      name = body.nome;
-      phone = body.telefone;
-      problema = body.problema;
-      servico = body.servico;
+      name = body.nome || body.name;
+      phone = body.telefone || body.phone;
+      problema = body.problema || body.message;
+      servico = body.servico || "Contato Geral";
     } else {
       const form = await request.formData();
-      email = form.get("email");
-      name = form.get("name");
-      phone = form.get("phone");
-      problema = form.get("problema");
-      servico = form.get("servico");
+      email = form.get("email")?.toString();
+      name = form.get("name")?.toString() || form.get("nome")?.toString();
+      phone = form.get("phone")?.toString() || form.get("telefone")?.toString();
+      problema = form.get("problema")?.toString() || form.get("message")?.toString();
+      servico = form.get("servico")?.toString() || "Contato Geral";
     }
-    const supabaseUrl = process.env.SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_ANON_KEY;
-    if (!supabaseUrl || supabaseUrl === "https://placeholder.supabase.co" || !supabaseKey || supabaseKey === "placeholder-key") {
-      console.log("Supabase não configurado. Dados do lead:", {
-        email,
-        nome: name,
-        telefone: phone,
-        servico,
-        problema
-      });
+    if (!email || !name || !phone) {
       if (contentType === "application/json") {
         return new Response(JSON.stringify({
-          success: true,
-          message: "Lead salvo com sucesso! (log)",
-          note: "Supabase não configurado"
+          success: false,
+          error: "Nome, e-mail e telefone são obrigatórios"
         }), {
-          status: 200,
+          status: 400,
           headers: { "Content-Type": "application/json" }
         });
       }
-      return redirect("/contato-enviado");
+      return redirect("/contato-nao-enviado");
     }
-    const { data, error } = await supabase.from("leads").insert([{
-      email,
-      nome: name,
-      telefone: phone,
-      problema,
-      servico,
-      created_at: (/* @__PURE__ */ new Date()).toISOString()
-    }]);
-    if (error) {
-      console.error("Erro ao inserir lead", error);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
       if (contentType === "application/json") {
-        return new Response(JSON.stringify({ error: "Erro ao salvar lead" }), {
+        return new Response(JSON.stringify({
+          success: false,
+          error: "Formato de e-mail inválido"
+        }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+      return redirect("/contato-nao-enviado");
+    }
+    const cleanPhone = phone.replace(/\D/g, "");
+    if (cleanPhone.length < 10 || cleanPhone.length > 11) {
+      if (contentType === "application/json") {
+        return new Response(JSON.stringify({
+          success: false,
+          error: "Telefone deve ter 10 ou 11 dígitos"
+        }), {
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+      return redirect("/contato-nao-enviado");
+    }
+    if (!isSupabaseConfigured()) {
+      console.error("Supabase não está configurado corretamente!");
+      if (contentType === "application/json") {
+        return new Response(JSON.stringify({
+          success: false,
+          error: "Serviço de banco de dados indisponível. Tente novamente em alguns minutos."
+        }), {
+          status: 503,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+      return redirect("/contato-nao-enviado");
+    }
+    const leadData = {
+      nome: name.trim(),
+      email: email.toLowerCase().trim(),
+      telefone: cleanPhone,
+      problema: (problema || "").trim(),
+      servico: servico || "Contato Geral"
+    };
+    const { data, error: supabaseError } = await insertLead(leadData);
+    if (supabaseError) {
+      console.error("Erro ao salvar lead no Supabase:", supabaseError);
+      if (contentType === "application/json") {
+        if (supabaseError.code === "23505") {
+          return new Response(JSON.stringify({
+            success: false,
+            error: "Este e-mail já foi cadastrado anteriormente."
+          }), {
+            status: 409,
+            headers: { "Content-Type": "application/json" }
+          });
+        }
+        return new Response(JSON.stringify({
+          success: false,
+          error: "Erro ao salvar dados. Tente novamente em alguns minutos."
+        }), {
           status: 500,
           headers: { "Content-Type": "application/json" }
         });
       }
       return redirect("/contato-nao-enviado");
     }
+    console.log(`✅ Lead salvo com sucesso: ${name} - ${servico} - ${(/* @__PURE__ */ new Date()).toISOString()}`);
     if (contentType === "application/json") {
-      return new Response(JSON.stringify({ success: true }), {
+      return new Response(JSON.stringify({
+        success: true,
+        message: "Lead salvo com sucesso! Entraremos em contato em breve.",
+        lead_id: data?.[0]?.id || null
+      }), {
         status: 200,
         headers: { "Content-Type": "application/json" }
       });
     }
     return redirect("/contato-enviado");
   } catch (error) {
-    console.error("Erro no endpoint send-lead:", error);
+    console.error("Erro inesperado no endpoint send-lead:", error);
     const contentType = request.headers.get("content-type");
     if (contentType === "application/json") {
-      return new Response(JSON.stringify({ error: "Erro interno do servidor" }), {
+      return new Response(JSON.stringify({
+        success: false,
+        error: "Erro interno do servidor. Tente novamente em alguns minutos."
+      }), {
         status: 500,
         headers: { "Content-Type": "application/json" }
       });
