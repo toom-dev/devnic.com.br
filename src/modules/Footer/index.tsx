@@ -4,39 +4,6 @@ import { Logo } from "@components/Logo";
 import { Container } from "@components/Container";
 
 export const Footer: FC = () => {
-    // Enhanced smooth scroll function with better error handling
-    const scrollToSection = (sectionId: string) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            // Get header height dynamically
-            const header = document.querySelector('header');
-            const headerHeight = header ? header.offsetHeight : 80;
-            const offsetTop = section.offsetTop - headerHeight - 20; // Extra 20px padding
-            
-            // Use both methods for better compatibility
-            try {
-                window.scrollTo({
-                    top: Math.max(0, offsetTop), // Ensure we don't scroll to negative position
-                    behavior: 'smooth'
-                });
-            } catch (error) {
-                // Fallback for older browsers
-                window.scrollTo(0, Math.max(0, offsetTop));
-            }
-        }
-    };
-
-    // Handle click events properly
-    const handleLinkClick = (sectionId: string) => (e: React.MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // Small delay to ensure DOM is ready
-        setTimeout(() => {
-            scrollToSection(sectionId);
-        }, 100);
-    };
-
     return (
         <footer className="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden">
             {/* Background Effects */}
@@ -63,19 +30,19 @@ export const Footer: FC = () => {
                                     </div>
                                 </div>
                                 <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-md">
-                                    Transformamos desafios em estratégias tecnológicas que <strong>impulsionam resultados</strong>.
-                                    Agilidade, segurança e excelência em consultoria de TI.
+                                    Desenvolvemos sistemas personalizados que <strong>automatizam seu negócio</strong>.
+                                    Tecnologia moderna, metodologia ágil e suporte técnico especializado.
                                 </p>
                                 
                                 {/* Stats */}
                                 <div className="grid grid-cols-2 gap-6 mb-8">
                                     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg">
-                                        <div className="text-2xl font-bold text-gray-900 mb-1">200+</div>
-                                        <div className="text-gray-600 text-sm">Projetos Entregues</div>
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">60 dias</div>
+                                        <div className="text-gray-600 text-sm">Entrega Média</div>
                                     </div>
                                     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200 shadow-lg">
-                                        <div className="text-2xl font-bold text-gray-900 mb-1">99%</div>
-                                        <div className="text-gray-600 text-sm">Satisfação do Cliente</div>
+                                        <div className="text-2xl font-bold text-gray-900 mb-1">100%</div>
+                                        <div className="text-gray-600 text-sm">Código Limpo</div>
                                     </div>
                                 </div>
 
@@ -93,15 +60,14 @@ export const Footer: FC = () => {
                                             </svg>
                                         </a>
                                         <a 
-                                            href="#" 
-                                            className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                                            href="https://www.instagram.com/devnic_web/" 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
                                             aria-label="Instagram"
                                         >
-                                            <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.618 5.367 11.986 11.988 11.986s11.987-5.368 11.987-11.986C24.014 5.367 18.635.001 12.017.001zm0 21.986c-5.523 0-9.999-4.477-9.999-10.000S6.494 1.987 12.017 1.987s9.998 4.477 9.998 9.999-4.475 10.000-9.998 10.000z"/>
-                                                <path d="M15.803 6.331c-.716 0-1.297.581-1.297 1.297s.581 1.297 1.297 1.297 1.297-.581 1.297-1.297-.581-1.297-1.297-1.297z"/>
-                                                <path d="M12.017 7.364c-2.548 0-4.623 2.075-4.623 4.623s2.075 4.623 4.623 4.623 4.623-2.075 4.623-4.623-2.075-4.623-4.623-4.623zm0 7.623c-1.651 0-3-1.349-3-3s1.349-3 3-3 3 1.349 3 3-1.349 3-3 3z"/>
-                                                <path d="M12.017 3.475c2.369 0 2.649.009 3.584.052.865.039 1.334.182 1.647.302.414.161.71.353 1.021.664.311.311.503.607.664 1.021.12.313.263.782.302 1.647.043.935.052 1.215.052 3.584s-.009 2.649-.052 3.584c-.039.865-.182 1.334-.302 1.647-.161.414-.353.71-.664 1.021-.311.311-.607.503-1.021.664-.313.12-.782.263-1.647.302-.935.043-1.215.052-3.584s.009-2.649.052-3.584c.039-.865.182-1.334.302-1.647.161-.414.353-.71.664-1.021.311-.311.607-.503 1.021-.664.313-.12.782-.263 1.647-.302.935-.043 1.215-.052 3.584-.052z"/>
+                                            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                             </svg>
                                         </a>
                                         <a 
@@ -122,54 +88,41 @@ export const Footer: FC = () => {
                                 <h4 className="text-gray-900 font-semibold mb-6">Links Rápidos</h4>
                                 <ul className="space-y-3">
                                     <li>
-                                        <button
-                                            type="button"
-                                            onClick={handleLinkClick('home')}
+                                        <a
+                                            href="#home"
                                             className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
                                             <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Início
-                                        </button>
+                                        </a>
                                     </li>
                                     <li>
-                                        <button
-                                            type="button"
-                                            onClick={handleLinkClick('servicos')}
+                                        <a
+                                            href="#servicos"
                                             className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
                                             <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Serviços
-                                        </button>
+                                        </a>
                                     </li>
                                     <li>
-                                        <button
-                                            type="button"
-                                            onClick={handleLinkClick('sobre')}
+                                        <a
+                                            href="#sobre"
                                             className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
                                             <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Sobre Nós
-                                        </button>
+                                        </a>
                                     </li>
+
                                     <li>
-                                        <button
-                                            type="button"
-                                            onClick={handleLinkClick('depoimentos')}
-                                            className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
-                                        >
-                                            <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
-                                            Depoimentos
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button
-                                            type="button"
-                                            onClick={handleLinkClick('contato')}
+                                        <a
+                                            href="#contato"
                                             className="text-gray-600 hover:text-gray-900 transition-colors duration-200 flex items-center group cursor-pointer w-full text-left"
                                         >
                                             <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-gray-900 transition-colors duration-200"></span>
                                             Contato
-                                        </button>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

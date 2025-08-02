@@ -109,7 +109,7 @@ export const Header: FC = () => {
                                     onClick={() => setIsServicesOpen(!isServicesOpen)}
                                     className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700 flex items-center gap-1"
                             >
-                                Serviços
+                                Desenvolvimento
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
@@ -118,29 +118,29 @@ export const Header: FC = () => {
                                 {isServicesOpen && (
                                     <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                                         <button
-                                            onClick={() => navigateToService('/transformacao-digital')}
+                                            onClick={() => navigateToService('/sistemas-web')}
                                             className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                                         >
-                                            Transformação Digital
+                                            Sistemas Web
                                         </button>
-                                                                                <button 
-                                            onClick={() => navigateToService('/automacoes')}
+                                        <button 
+                                            onClick={() => navigateToService('/apps-mobile')}
                                             className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                                         >
-                                            Automação de Processos
-                                        </button>
-                                        <button
-                                            onClick={() => navigateToService('/seguranca-informacao')}
-                                            className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                                        >
-                                            Segurança da Informação
+                                            Apps Mobile
                                         </button>
                                         <button
-                                            onClick={() => navigateToService('/otimizacao-processos')}
+                                            onClick={() => navigateToService('/sistemas-desktop')}
                                             className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                                         >
-                                            Otimização de Processos
-                            </button>
+                                            Sistemas Desktop
+                                        </button>
+                                        <button
+                                            onClick={() => navigateToService('/apis-integracao')}
+                                            className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                                        >
+                                            APIs e Integrações
+                                        </button>
                                     </div>
                                 )}
                             </div>
@@ -150,12 +150,6 @@ export const Header: FC = () => {
                                 className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
                             >
                                 Sobre
-                            </button>
-                            <button
-                                onClick={() => navigateToSection('depoimentos')}
-                                className="font-medium transition-colors duration-200 hover:text-blue-600 cursor-pointer text-gray-700"
-                            >
-                                Depoimentos
                             </button>
                         </nav>
                         
@@ -172,7 +166,7 @@ export const Header: FC = () => {
                                 data-track="contact"
                                 className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                             >
-                                Consulta Gratuita
+                                Orçamento Gratuito
                             </button>
                         </div>
                     </div>
@@ -212,31 +206,31 @@ export const Header: FC = () => {
                             
                             {/* Mobile Services Section */}
                             <div className="space-y-2">
-                                <div className="text-gray-500 text-sm font-medium px-4">Serviços</div>
+                                <div className="text-gray-500 text-sm font-medium px-4">Desenvolvimento</div>
                                 <button 
-                                    onClick={() => navigateToService('/transformacao-digital')}
+                                    onClick={() => navigateToService('/sistemas-web')}
                                     className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
                                 >
-                                    Transformação Digital
+                                    Sistemas Web
                                 </button>
-                                                                            <button 
-                                                onClick={() => navigateToService('/automacoes')}
-                                                className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
-                                            >
-                                                Automação de Processos
-                                            </button>
                                 <button 
-                                    onClick={() => navigateToService('/seguranca-informacao')}
+                                    onClick={() => navigateToService('/apps-mobile')}
                                     className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
                                 >
-                                    Segurança da Informação
-                            </button>
-                            <button 
-                                    onClick={() => navigateToService('/otimizacao-processos')}
+                                    Apps Mobile
+                                </button>
+                                <button 
+                                    onClick={() => navigateToService('/sistemas-desktop')}
                                     className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
-                            >
-                                    Otimização de Processos
-                            </button>
+                                >
+                                    Sistemas Desktop
+                                </button>
+                                <button 
+                                    onClick={() => navigateToService('/apis-integracao')}
+                                    className="block w-full text-left text-gray-700 font-medium py-2 px-6 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
+                                >
+                                    APIs e Integrações
+                                </button>
                             </div>
                             
                             <button 
@@ -246,10 +240,10 @@ export const Header: FC = () => {
                                 Sobre
                             </button>
                             <button 
-                                onClick={() => navigateToSection('depoimentos')}
+                                onClick={() => navigateToSection('sobre')}
                                 className="block w-full text-left text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200"
                             >
-                                Depoimentos
+                                Sobre
                             </button>
                             
                             <div className="pt-4 border-t border-gray-200">
@@ -264,7 +258,7 @@ export const Header: FC = () => {
                                     data-track="contact"
                                     className="block w-full mt-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg"
                                 >
-                                    Consulta Gratuita
+                                    Orçamento Gratuito
                                 </button>
                             </div>
                         </div>

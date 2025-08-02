@@ -4,39 +4,40 @@ import Layout from "../layouts/Layout.astro";
 import { Logos } from "@blocks/Logos";
 import { Service } from "@blocks/Service";
 import { ImageContent } from "@blocks/ImageContent";
-import { Testimonials } from "@blocks/Testimonials";
+
 import { Newsletter } from "@blocks/Newsletter";
 import { Stats } from "@blocks/Stats";
+import { Image } from "@static/images";
 ---
 
 <Layout
-    title="Consultoria em TI Especializada | Devnic - São Paulo"
-    description="Alcance novos níveis com consultoria em TI! A Devnic otimiza infraestrutura, segurança e processos para empresas de todos os portes. Mais de 200 projetos entregues com sucesso. Diagnóstico gratuito em São Paulo. Resultados garantidos!"
+    title="Desenvolvimento de Sistemas Personalizados | Devnic - São Paulo"
+    description="Sistemas sob medida para sua empresa! A Devnic desenvolve aplicações web, mobile e desktop personalizadas. Soluções escaláveis e modernas. Orçamento gratuito em São Paulo. Entrega garantida!"
 >
     <main class="page-content">
         <section id="home" class="bg-white py-20 px-4">
             <div class="max-w-6xl mx-auto text-center">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full text-blue-600 text-sm font-medium mb-8">
                     <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    Resultados Garantidos em 90 dias
+                    Sistemas Sob Medida em 60 dias
                 </div>
                 
                 <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                    Potencialize seu negócio com<br/>
-                    <span class="text-blue-600">consultoria em TI de alto nível</span>
+                    Transforme sua empresa com<br/>
+                    <span class="text-blue-600">sistemas personalizados de alto nível</span>
                 </h1>
                 
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-                    Nossa consultoria identifica oportunidades, otimiza processos e reduz custos. 
-                    Mais de 200 projetos bem-sucedidos com resultados mensuráveis.
+                    Desenvolvemos sistemas web, mobile e desktop sob medida para sua empresa. 
+                    Tecnologias modernas e soluções escaláveis que crescem com seu negócio.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                    <button onclick="window.openContactForm && window.openContactForm('Diagnóstico Geral')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
-                        Diagnóstico Gratuito
+                    <button onclick="window.openContactForm && window.openContactForm('Sistema Personalizado')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+                        Orçamento Gratuito
                     </button>
                     <a href="#servicos" class="border border-gray-300 hover:border-gray-400 text-gray-700 px-8 py-4 rounded-lg font-semibold transition-colors">
-                        Nossos Serviços
+                        Nossas Soluções
                     </a>
                 </div>
                 
@@ -48,30 +49,30 @@ import { Stats } from "@blocks/Stats";
             <div class="max-w-6xl mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Sua plataforma completa para <span class="text-blue-600">Consultoria em TI</span>
+                        Sua plataforma completa para <span class="text-blue-600">Desenvolvimento de Sistemas</span>
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Metodologia comprovada que já otimizou mais de 200 projetos. 
-                        Resultados mensuráveis e suporte especializado para sua empresa crescer.
+                        Metodologia ágil com foco em entrega rápida e qualidade. 
+                        Suporte especializado para sua empresa crescer.
                     </p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">200+</div>
-                        <div class="text-gray-600 text-sm">Projetos de TI otimizados</div>
+                        <div class="text-3xl font-bold text-blue-600 mb-2">60 dias</div>
+                        <div class="text-gray-600 text-sm">Entrega média</div>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-green-600 mb-2">99%</div>
-                        <div class="text-gray-600 text-sm">Clientes satisfeitos</div>
+                        <div class="text-3xl font-bold text-green-600 mb-2">100%</div>
+                        <div class="text-gray-600 text-sm">Código limpo</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-sm border border-gray-100">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">24/7</div>
+                        <div class="text-gray-600 text-sm">Suporte técnico</div>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-purple-600 mb-2">40%</div>
-                        <div class="text-gray-600 text-sm">Redução média de custos</div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-orange-600 mb-2">24/7</div>
-                        <div class="text-gray-600 text-sm">Suporte especializado</div>
+                        <div class="text-3xl font-bold text-orange-600 mb-2">Agile</div>
+                        <div class="text-gray-600 text-sm">Metodologia</div>
                     </div>
                 </div>
                 
@@ -83,8 +84,8 @@ import { Stats } from "@blocks/Stats";
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Análise Completa</h3>
-                        <p class="text-gray-600 text-sm">Diagnóstico profundo da sua infraestrutura atual e identificação de oportunidades.</p>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Análise de Requisitos</h3>
+                        <p class="text-gray-600 text-sm">Entendimento profundo das suas necessidades e planejamento da solução ideal.</p>
                     </div>
                     
                     <div class="text-center">
@@ -93,8 +94,8 @@ import { Stats } from "@blocks/Stats";
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Implementação Estratégica</h3>
-                        <p class="text-gray-600 text-sm">Roadmap personalizado com execução acompanhada para garantir resultados.</p>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Desenvolvimento Ágil</h3>
+                        <p class="text-gray-600 text-sm">Desenvolvimento iterativo com entregas contínuas e feedback constante.</p>
                     </div>
                     
                     <div class="text-center">
@@ -103,8 +104,8 @@ import { Stats } from "@blocks/Stats";
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Suporte Contínuo</h3>
-                        <p class="text-gray-600 text-sm">Acompanhamento 24/7 e otimizações constantes para máxima eficiência.</p>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Manutenção Contínua</h3>
+                        <p class="text-gray-600 text-sm">Suporte técnico 24/7 e atualizações constantes para máxima performance.</p>
                     </div>
                 </div>
             </div>
@@ -118,43 +119,43 @@ import { Stats } from "@blocks/Stats";
                         Soluções de Consultoria
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Tecnologia estratégica para <span class="text-blue-600">crescer com segurança</span>
+                        Sistemas personalizados para <span class="text-blue-600">automatizar seu negócio</span>
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Oferecemos consultoria completa para planejar, implementar e evoluir sua infraestrutura de TI. 
+                        Desenvolvemos sistemas completos para otimizar processos, integrar dados e aumentar produtividade. 
                         Trabalhamos lado a lado para que você foque no negócio.
                     </p>
                 </div>
             </div>
             <Service
                 data={{
-                    aboveTitle: "Soluções de Consultoria",
-                    title: "Tecnologia Estratégica para Crescer com Segurança",
-                    description: "Oferecemos consultoria completa para planejar, implementar e evoluir sua infraestrutura de TI. Trabalhamos lado a lado para que você foque no negócio.",
+                    aboveTitle: "Soluções de Desenvolvimento",
+                    title: "Sistemas Personalizados para Automatizar seu Negócio",
+                    description: "Desenvolvemos sistemas completos para otimizar processos, integrar dados e aumentar produtividade. Trabalhamos lado a lado para que você foque no negócio.",
                     services: [
                         {
-                            title: "Transformação Digital",
-                            description: "Planejamento estratégico e roadmap tecnológico para tornar seu negócio mais eficiente e competitivo.",
+                            title: "Sistemas Web",
+                            description: "Aplicações web responsivas e modernas para gestão empresarial e automação de processos.",
                             icon: "cloud",
-                            link: "/transformacao-digital",
+                            link: "/sistemas-web",
                         },
                         {
-                            title: "Automação de Processos",
-                            description: "Robôs digitais, workflows inteligentes e integração de sistemas para eliminar tarefas manuais.",
+                            title: "Aplicativos Mobile",
+                            description: "Apps nativos e híbridos para iOS e Android com funcionalidades avançadas e UX intuitiva.",
                             icon: "fingerprint",
-                            link: "/automacoes",
+                            link: "/apps-mobile",
                         },
                         {
-                            title: "Segurança da Informação",
-                            description: "Proteção de dados, análise de vulnerabilidades e políticas de segurança personalizadas.",
+                            title: "Sistemas Desktop",
+                            description: "Aplicações desktop robustas para controle interno e gestão de dados sensíveis.",
                             icon: "lock",
-                            link: "/seguranca-informacao",
+                            link: "/sistemas-desktop",
                         },
                         {
-                            title: "Otimização de Processos",
-                            description: "Automação e integração de sistemas para reduzir custos e aumentar a produtividade.",
+                            title: "APIs e Integrações",
+                            description: "APIs RESTful e integrações entre sistemas para conectar suas ferramentas existentes.",
                             icon: "repeat",
-                            link: "/otimizacao-processos",
+                            link: "/apis-integracao",
                         },
                     ],
                 }}
@@ -171,17 +172,17 @@ import { Stats } from "@blocks/Stats";
                         Por Que Escolher a Devnic?
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Expertise em tecnologia para <span class="text-green-600">impulsionar resultados</span>
+                        Expertise em desenvolvimento para <span class="text-green-600">impulsionar resultados</span>
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Somos especialistas em consultoria de TI. Nossos projetos combinam visão estratégica 
-                        e know-how técnico para entregar soluções que geram retorno real.
+                        Somos especialistas em desenvolvimento de sistemas. Nossos projetos combinam tecnologia moderna 
+                        e metodologia ágil para entregar soluções que geram retorno real.
                     </p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Parceria que gera valor</h3>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Desenvolvimento que gera valor</h3>
                         <div class="space-y-4">
                             <div class="flex items-start gap-3">
                                 <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-1">
@@ -190,8 +191,8 @@ import { Stats } from "@blocks/Stats";
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900">Transparência Total</h4>
-                                    <p class="text-gray-600">Relatórios detalhados e comunicação clara em todas as etapas.</p>
+                                    <h4 class="font-semibold text-gray-900">Código Limpo</h4>
+                                    <p class="text-gray-600">Desenvolvimento com boas práticas e código bem estruturado para manutenção fácil.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -201,8 +202,8 @@ import { Stats } from "@blocks/Stats";
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900">ROI Garantido</h4>
-                                    <p class="text-gray-600">Cada projeto é estruturado para maximizar o retorno do investimento.</p>
+                                    <h4 class="font-semibold text-gray-900">Entrega Rápida</h4>
+                                    <p class="text-gray-600">Metodologia ágil com entregas contínuas e feedback constante.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -212,8 +213,8 @@ import { Stats } from "@blocks/Stats";
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900">Suporte Dedicado</h4>
-                                    <p class="text-gray-600">Equipe especializada sempre disponível para apoiar seu crescimento.</p>
+                                    <h4 class="font-semibold text-gray-900">Suporte Técnico</h4>
+                                    <p class="text-gray-600">Equipe especializada sempre disponível para manutenção e evolução.</p>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +222,7 @@ import { Stats } from "@blocks/Stats";
                     
                     <div class="bg-gray-100 rounded-xl p-8 text-center">
                         <div class="w-full h-64 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-400">
-                            Imagem Ilustrativa
+                            <Image srcLocal="expertise" alt="Expertise" width="100%" height="100%" />
                         </div>
                         <p class="text-gray-600 text-sm">Nossa metodologia comprovada em ação</p>
                     </div>
@@ -229,74 +230,21 @@ import { Stats } from "@blocks/Stats";
             </div>
         </section>
 
-        <section id="depoimentos" class="py-20 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Consultoria que <span class="text-blue-600">você vai adorar usar</span>
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Nossos clientes alcançaram resultados extraordinários com nossas soluções de TI. 
-                        Veja o que eles têm a dizer sobre nossa parceria.
-                    </p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-xl border border-gray-200">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Carlos Silva</div>
-                                <div class="text-sm text-gray-600">CEO - TechSolutions</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 italic">
-                            "A consultoria da Devnic reduziu nossos custos em 40% e trouxe total segurança para nossas operações."
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-xl border border-gray-200">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Maria Santos</div>
-                                <div class="text-sm text-gray-600">Diretora Comercial - InnovaCorp</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 italic">
-                            "Após o diagnóstico da Devnic reorganizamos todo nosso ambiente de TI e ganhamos produtividade imediata."
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-xl border border-gray-200">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
-                            <div>
-                                <div class="font-semibold text-gray-900">Roberto Lima</div>
-                                <div class="text-sm text-gray-600">Fundador - LogisFast</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 italic">
-                            "Com o suporte contínuo da equipe Devnic conseguimos focar no negócio e crescemos 50% em 6 meses."
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <section id="contato" class="py-20 bg-white">
             <div class="max-w-4xl mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    Potencialize sua empresa com <span class="text-blue-600">nossa consultoria</span>
+                    Potencialize sua empresa com <span class="text-blue-600">nossos sistemas</span>
                 </h2>
                 <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                    Descubra como a tecnologia certa pode acelerar seus resultados. 
-                    Diagnóstico gratuito e sem compromisso.
+                    Descubra como sistemas personalizados podem automatizar seus processos. 
+                    Orçamento gratuito e sem compromisso.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                    <button onclick="window.openContactForm && window.openContactForm('Diagnóstico Geral')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">
-                        Agendar Diagnóstico Gratuito
+                    <button onclick="window.openContactForm && window.openContactForm('Sistema Personalizado')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center">
+                        Solicitar Orçamento Gratuito
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
