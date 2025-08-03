@@ -1,7 +1,7 @@
 /* empty css                                           */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_JMl83RYM.mjs';
 import 'kleur/colors';
-import { C as Container, $ as $$Layout, I as Image } from '../chunks/Layout_DXR7D-GL.mjs';
+import { C as Container, $ as $$Layout, I as Image } from '../chunks/Layout_Xeq6cW1F.mjs';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import * as React from 'react';
 export { renderers } from '../renderers.mjs';
