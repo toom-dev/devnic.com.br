@@ -14,7 +14,7 @@ const date = new Date().toISOString();
 // https://astro.build/config
 export default defineConfig({
   site: siteUrl,
-
+  output: 'server',
   integrations: [
       react(),
       svgr(),
@@ -46,7 +46,6 @@ export default defineConfig({
   ],
 
   renderers: ["@astrojs/renderer-react"],
-  prerender: true,
 
   vite: {
       plugins: [CompressionPlugin(), svgr()],
