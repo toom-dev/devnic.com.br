@@ -2747,16 +2747,17 @@ var src_default = createRobotsTxtIntegration;
 const siteUrl = "https://devnic.com.br";
 
 defineConfig({
-  // URL do site
+  // URL do site (usada pelo sitemap, robots.txt etc.)
   site: siteUrl,
 
-  // Geração SSR (em vez de estático)
+  // Habilita SSR em vez de saída 100% estática
   output: "server",
 
-  // Adapter Vercel — gera funções serverless Node em dist/server
-  adapter: vercelAdapter(),
+  // Adapter Vercel em modo “serverless” Node.js
+  adapter: vercelAdapter({
+    }),
 
-  // Integrações
+  // Integrações Astro/Vite
   integrations: [
     src_default$1(),
     svgr(),
@@ -2789,7 +2790,7 @@ defineConfig({
     }),
   ],
 
-  // Build do Vite
+  // Configurações do build Vite
   vite: {
     plugins: [CompressionPlugin(), svgr()],
     build: {
@@ -2809,12 +2810,12 @@ defineConfig({
     },
   },
 
-  // Opções adicionais de build
+  // Opções extras de build do Astro
   buildOptions: {
     minify: true,
   },
 
-  // Configurações do servidor dev / headers
+  // Cabeçalhos de segurança para o servidor dev
   server: {
     headers: {
       "X-Frame-Options": "DENY",

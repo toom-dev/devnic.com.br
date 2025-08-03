@@ -11,16 +11,18 @@ import vercel from "@astrojs/vercel";
 export const siteUrl = "https://devnic.com.br";
 
 export default defineConfig({
-  // URL do site
+  // URL do site (usada pelo sitemap, robots.txt etc.)
   site: siteUrl,
 
-  // Geração SSR (em vez de estático)
+  // Habilita SSR em vez de saída 100% estática
   output: "server",
 
-  // Adapter Vercel — gera funções serverless Node em dist/server
-  adapter: vercel(),
+  // Adapter Vercel em modo “serverless” Node.js
+  adapter: vercel({
+    mode: "serverless",
+  }),
 
-  // Integrações
+  // Integrações Astro/Vite
   integrations: [
     react(),
     svgr(),
@@ -53,7 +55,7 @@ export default defineConfig({
     }),
   ],
 
-  // Build do Vite
+  // Configurações do build Vite
   vite: {
     plugins: [CompressionPlugin(), svgr()],
     build: {
@@ -73,12 +75,12 @@ export default defineConfig({
     },
   },
 
-  // Opções adicionais de build
+  // Opções extras de build do Astro
   buildOptions: {
     minify: true,
   },
 
-  // Configurações do servidor dev / headers
+  // Cabeçalhos de segurança para o servidor dev
   server: {
     headers: {
       "X-Frame-Options": "DENY",

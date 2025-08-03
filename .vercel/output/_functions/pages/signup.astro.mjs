@@ -1,8 +1,8 @@
 /* empty css                                           */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_JMl83RYM.mjs';
 import 'kleur/colors';
-import { $ as $$Layout, C as Container } from '../chunks/Layout_CCJ9a_IF.mjs';
-import { B as Button } from '../chunks/index_L3fIrfDW.mjs';
+import { $ as $$Layout, C as Container } from '../chunks/Layout_DOzioh_d.mjs';
+import { B as Button } from '../chunks/index_Dot6zh3M.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Signup = createComponent(($$result, $$props, $$slots) => {
