@@ -20,10 +20,6 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^/404/?$",
-			"dest": "_render"
-		},
-		{
 			"src": "^/api/send-email/?$",
 			"dest": "_render"
 		},
@@ -32,56 +28,8 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^/apis-integracao/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/apps-mobile/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/contato-enviado/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/contato-nao-enviado/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/politica-de-privacidade/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/robots\\.txt/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/signin/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/signup/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/sistemas-desktop/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/sistemas-web/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/termos-de-uso/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/$",
-			"dest": "_render"
-		},
-		{
 			"src": "^/.*$",
-			"dest": "_render",
+			"dest": "/404.html",
 			"status": 404
 		}
 	]
