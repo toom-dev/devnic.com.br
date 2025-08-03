@@ -2742,19 +2742,27 @@ var createRobotsTxtIntegration = (options = {}) => {
 };
 var src_default = createRobotsTxtIntegration;
 
+// astro.config.mjs
+
 const siteUrl = "https://devnic.com.br";
 
 defineConfig({
   // URL do site
   site: siteUrl,
 
-  // Gera saída SSR (server) em vez de estático
+  // Geração SSR (em vez de estático)
   output: "server",
 
-  // Todas as integrações
+  // Adapter Vercel — gera funções serverless Node em dist/server
+  adapter: vercelAdapter(),
+
+  // Integrações
   integrations: [
     src_default$1(),
     svgr(),
+    tailwindIntegration({
+      configFile: "./tailwind.config.js",
+    }),
     index_default({
       changefreq: "weekly",
       priority: 0.7,
@@ -2775,17 +2783,11 @@ defineConfig({
         return item;
       },
     }),
-    tailwindIntegration({
-      configFile: "./tailwind.config.js",
-    }),
     src_default({
       sitemap: [`${siteUrl}/sitemap-index.xml`, `${siteUrl}/sitemap-0.xml`],
       host: siteUrl,
     }),
   ],
-
-  // Renderer React
-  renderers: ["@astrojs/renderer-react"],
 
   // Build do Vite
   vite: {
@@ -2812,11 +2814,7 @@ defineConfig({
     minify: true,
   },
 
-  // Adapter Vercel em modo serverless (gera dist/server/entry.mjs)
-  adapter: vercelAdapter({
-    }),
-
-  // Configurações do dev server (headers)
+  // Configurações do servidor dev / headers
   server: {
     headers: {
       "X-Frame-Options": "DENY",

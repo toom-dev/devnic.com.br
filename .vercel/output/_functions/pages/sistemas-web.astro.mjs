@@ -1,7 +1,7 @@
 /* empty css                                           */
 import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_JMl83RYM.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_Xeq6cW1F.mjs';
+import { $ as $$Layout } from '../chunks/Layout_CCJ9a_IF.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$SistemasWeb = createComponent(($$result, $$props, $$slots) => {
