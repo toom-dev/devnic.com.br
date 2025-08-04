@@ -34,9 +34,9 @@ Este documento descreve toda a implementação de analytics do site da Devnic, i
 
 ### Eventos de Conversão
 1. **Envio de Formulário de Contato**
-   - Evento: `generate_lead`
+   - Evento: `form_submit`
    - Categoria: `lead_generation`
-   - Label: `contact_form_submission`
+   - Label: `form_submission`
 
 2. **Cliques em Links do WhatsApp**
    - Evento: `contact`
@@ -118,7 +118,7 @@ npm install @vercel/analytics @vercel/speed-insights
 import { trackConversion, CONVERSION_EVENTS } from '@lib/analytics';
 
 // Rastrear uma conversão específica
-trackConversion('CONTACT_FORM_SUBMIT');
+trackConversion('FORM_SUBMIT');
 
 // Rastrear com valor customizado
 trackConversion('WHATSAPP_CLICK', 5);

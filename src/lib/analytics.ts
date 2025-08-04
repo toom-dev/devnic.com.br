@@ -36,15 +36,15 @@ export const trackEvent = (event: AnalyticsEvent) => {
 
 // Eventos pré-definidos para conversões
 export const CONVERSION_EVENTS = {
-  CONTACT_FORM_SUBMIT: {
-    action: 'generate_lead',
+  FORM_SUBMIT: {
+    action: 'form_submit',
     category: 'lead_generation',
-    label: 'contact_form_submission',
+    label: 'form_submission',
     value: 1
   },
   WHATSAPP_CLICK: {
     action: 'contact',
-    category: 'lead_generation', 
+    category: 'lead_generation',
     label: 'whatsapp_click',
     value: 1
   },
