@@ -48,7 +48,7 @@
         // Rastrear envios de formulário
         document.querySelectorAll('form').forEach(form => {
           form.addEventListener('submit', () => {
-            gtag('event', 'generate_lead', {
+            gtag('event', 'form_submit', {
               event_category: 'lead_generation',
               event_label: 'form_submission',
               value: 1
