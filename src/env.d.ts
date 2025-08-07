@@ -7,6 +7,7 @@ interface ImportMetaEnv {
     readonly SUPABASE_ANON_KEY: string
     readonly SITE: string
     readonly PUBLIC_SITE_URL: string
+    readonly PUBLIC_API?: string
 }
 
 interface ImportMeta {

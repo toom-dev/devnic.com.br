@@ -24,7 +24,7 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
 
     try {
       // Primeira tentativa: API externa configurada no .env
-      const apiUrl = import.meta.env.API;
+      const apiUrl = import.meta.env.PUBLIC_API;
       
       if (apiUrl) {
         try {

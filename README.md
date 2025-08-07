@@ -120,7 +120,7 @@ Para configurar a API externa para envio de contatos, crie um arquivo `.env` na 
 
 ```bash
 # API Configuration
-API=https://sua-api-externa.com/mail
+PUBLIC_API=https://sua-api-externa.com/mail
 
 # Outras variáveis de ambiente
 SUPABASE_URL=your_supabase_url
@@ -130,7 +130,7 @@ SITE=https://devnic.com.br
 
 ### API de Contatos
 
-O formulário de contato enviará um POST para a URL definida em `API` com o seguinte payload:
+O formulário de contato enviará um POST para a URL definida em `PUBLIC_API` com o seguinte payload:
 
 ```json
 {
@@ -140,7 +140,7 @@ O formulário de contato enviará um POST para a URL definida em `API` com o seg
 }
 ```
 
-Se a variável `API` não estiver configurada ou a requisição falhar, o sistema utilizará a API local como fallback.
+Se a variável `PUBLIC_API` não estiver configurada ou a requisição falhar, o sistema utilizará a API local como fallback.
 
 ## 🧞 Commands
 
