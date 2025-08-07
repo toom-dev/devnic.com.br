@@ -10,9 +10,7 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
-    telefone: '',
-    problema: '',
-    servico: service || 'Diagnóstico Geral'
+    telefone: ''
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,6 +23,44 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
     setError('');
 
     try {
+      // Primeira tentativa: API externa configurada no .env
+      const apiUrl = import.meta.env.API;
+      
+      if (apiUrl) {
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              nome: formData.nome,
+              email: formData.email,
+              telefone: formData.telefone
+            }),
+          });
+
+          if (response.ok) {
+            setIsSuccess(true);
+            
+            // Reset form after 2 seconds and close
+            setTimeout(() => {
+              setFormData({
+                nome: '',
+                email: '',
+                telefone: ''
+              });
+              setIsSuccess(false);
+              onClose();
+            }, 2000);
+            return;
+          }
+        } catch (apiError) {
+          console.warn('Falha na API externa, tentando fallback:', apiError);
+        }
+      }
+
+      // Fallback: API local (caso a API externa não esteja configurada ou falhe)
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -45,16 +81,14 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
         setFormData({
           nome: '',
           email: '',
-          telefone: '',
-          problema: '',
-          servico: service || 'Diagnóstico Geral'
+          telefone: ''
         });
         setIsSuccess(false);
         onClose();
       }, 2000);
 
     } catch (error) {
-      console.error('Erro ao salvar lead:', error);
+      console.error('Erro ao enviar formulário:', error);
       setError('Erro ao enviar formulário. Tente novamente.');
     } finally {
       setIsSubmitting(false);
@@ -97,7 +131,7 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
         ) : (
           <>
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Solicitar {service === 'Diagnóstico Geral' ? 'Diagnóstico' : 'Consulta'} Gratuita
+              Solicitar Orçamento Gratuito
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -149,40 +183,7 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
                 />
               </div>
 
-              <div>
-                <label htmlFor="problema" className="block text-sm font-medium text-gray-700 mb-1">
-                  Descreva seu problema ou necessidade *
-                </label>
-                <textarea
-                  id="problema"
-                  name="problema"
-                  required
-                  rows={4}
-                  value={formData.problema}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                  placeholder="Conte-nos sobre seu desafio atual de TI..."
-                />
-              </div>
 
-              <div>
-                <label htmlFor="servico" className="block text-sm font-medium text-gray-700 mb-1">
-                  Serviço de Interesse
-                </label>
-                <select
-                  id="servico"
-                  name="servico"
-                  value={formData.servico}
-                  onChange={(e) => setFormData(prev => ({ ...prev, servico: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="Diagnóstico Geral">Diagnóstico Geral</option>
-                  <option value="Transformação Digital">Transformação Digital</option>
-                  <option value="Infraestrutura & Cloud">Infraestrutura & Cloud</option>
-                  <option value="Segurança da Informação">Segurança da Informação</option>
-                  <option value="Otimização de Processos">Otimização de Processos</option>
-                </select>
-              </div>
 
               {error && (
                 <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">

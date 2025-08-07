@@ -50,6 +50,10 @@ export default defineConfig({
 
   vite: {
       plugins: [CompressionPlugin(), svgr()],
+      define: {
+          // Expor variáveis de ambiente para o cliente
+          'import.meta.env.API': JSON.stringify(process.env.API),
+      },
       build: {
           // Minificação para produção
           minify: 'esbuild',

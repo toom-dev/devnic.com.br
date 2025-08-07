@@ -114,6 +114,34 @@ npx tailwindcss -i ./src/styles/tailwind/tailwind.css -o ./src/styles/tailwind/t
 
 this will create instance in CMD and it will watch for all tailwind changes.
 
+## 🔧 Configuração de Variáveis de Ambiente
+
+Para configurar a API externa para envio de contatos, crie um arquivo `.env` na raiz do projeto:
+
+```bash
+# API Configuration
+API=https://sua-api-externa.com/mail
+
+# Outras variáveis de ambiente
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SITE=https://devnic.com.br
+```
+
+### API de Contatos
+
+O formulário de contato enviará um POST para a URL definida em `API` com o seguinte payload:
+
+```json
+{
+  "nome": "Nome do usuário",
+  "email": "email@exemplo.com", 
+  "telefone": "11999999999"
+}
+```
+
+Se a variável `API` não estiver configurada ou a requisição falhar, o sistema utilizará a API local como fallback.
+
 ## 🧞 Commands
 
 #### All commands are run from the root of the project, from a terminal:
