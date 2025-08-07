@@ -56,23 +56,21 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
             return;
           }
         } catch (apiError) {
-          console.warn('Falha na API externa, tentando fallback:', apiError);
+          const response = await fetch('https://devnic-controller.vercel.app/mail', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+    
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Erro ao enviar formulário');
+          }
         }
       }
-
       // Fallback: API local (caso a API externa não esteja configurada ou falhe)
-      const response = await fetch('https://devnic-controller.vercel.app/mail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Erro ao enviar formulário');
-      }
 
       setIsSuccess(true);
       
