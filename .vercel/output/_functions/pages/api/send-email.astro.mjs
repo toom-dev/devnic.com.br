@@ -71,8 +71,8 @@ const POST = async ({ request }) => {
       nome: nome.trim(),
       email: email.toLowerCase().trim(),
       telefone: cleanPhone,
-      problema: (problema || message || "").trim(),
-      servico: servico || "Contato Geral"
+      problema: (problema || message || "Solicitação de orçamento").trim(),
+      servico: servico || "Solicitação de Orçamento"
     };
     const { data, error: supabaseError } = await insertLead(leadData);
     if (supabaseError) {
