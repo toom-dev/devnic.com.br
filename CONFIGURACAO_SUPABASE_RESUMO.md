@@ -17,7 +17,7 @@
 - **Índices:** Otimizados para performance
 
 ### ✅ 2. Endpoints de API Atualizados
-- **`/api/send-email`** → Salva no Supabase (era log)
+- **`/https://devnic-controller.vercel.app/mail`** → Salva no Supabase (era log)
 - **`/api/send-lead`** → Salva no Supabase (era log)
 - **Validações:** Email, telefone, campos obrigatórios
 - **Tratamento:** Erros específicos e mensagens amigáveis
@@ -98,7 +98,7 @@ SELECT * FROM leads WHERE created_at >= NOW() - INTERVAL '7 days';
 - TypeScript validado
 
 ### ✅ Endpoints
-- `/api/send-email` → Funcional
+- `/https://devnic-controller.vercel.app/mail` → Funcional
 - `/api/send-lead` → Funcional
 - Validações → Funcionais
 - Tratamento de erros → Funcional

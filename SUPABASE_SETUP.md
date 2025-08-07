@@ -18,7 +18,7 @@
 
 ### ✅ Endpoints de API Funcionais
 
-#### `/api/send-email` 
+#### `/https://devnic-controller.vercel.app/mail` 
 - ✅ Salva dados no Supabase (não mais em log)
 - ✅ Validações de formato de email e telefone
 - ✅ Tratamento de duplicações
@@ -63,7 +63,7 @@
 
 ### 1. Usuário Preenche Formulário
 ```
-Usuário → Newsletter Component → /api/send-email
+Usuário → Newsletter Component → /https://devnic-controller.vercel.app/mail
 ```
 
 ### 2. Validação e Processamento

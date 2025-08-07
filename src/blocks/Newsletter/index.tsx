@@ -71,7 +71,7 @@ export const Newsletter: FC<NewsletterProps> = ({
             formData.append("phone", data.phone);
             formData.append("message", data.message || "");
 
-            const response = await fetch("/api/send-email", {
+            const response = await fetch("/https://devnic-controller.vercel.app/mail", {
                 method: "POST",
                 body: formData,
             });

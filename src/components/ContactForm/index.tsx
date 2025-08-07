@@ -61,7 +61,7 @@ export const ContactForm = ({ isOpen, onClose, service }: ContactFormProps) => {
       }
 
       // Fallback: API local (caso a API externa não esteja configurada ou falhe)
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('https://devnic-controller.vercel.app/mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
